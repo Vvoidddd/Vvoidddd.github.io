@@ -46,11 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Banner close functionality
+    // Banner close functionality with animation
     const bannerCloseBtn = document.getElementById('banner-close-btn');
     const banner = document.getElementById('announcement-banner');
 
+    // Show banner with animation when the page loads
+    setTimeout(() => {
+        banner.classList.add('show');
+    }, 500);
+
+    // Close banner on button click
     bannerCloseBtn.addEventListener('click', () => {
-        banner.style.display = 'none';
+        banner.style.transform = 'translateY(-100%)'; // Animate banner closing
     });
 });
