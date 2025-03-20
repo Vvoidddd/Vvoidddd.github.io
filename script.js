@@ -45,4 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
             changelogToggle.innerHTML = "&#8593;"; // Change arrow to up
         }
     });
+
+    // Banner close functionality
+    const bannerCloseBtn = document.getElementById('banner-close-btn');
+    const banner = document.getElementById('announcement-banner');
+
+    bannerCloseBtn.addEventListener('click', () => {
+        banner.style.display = 'none';
+    });
 });
