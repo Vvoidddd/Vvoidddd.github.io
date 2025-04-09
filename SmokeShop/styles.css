@@ -54,4 +54,13 @@ body {
     background-color: #3e8e41;
     transform: scale(1.05);
   }
+  /* General Styles */
+body {
+    font-family: 'Horizon', sans-serif;
+  }
+  
+  .site-name {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #10B981;
+  }
   
