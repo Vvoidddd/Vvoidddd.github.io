@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title and Description -->
+  <title>Cart | Brains, Brawn & Bong</title>
+  <meta name="description" content="View and manage items in your cart at Brains, Brawn & Bong." />
+
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Cart | Brains, Brawn & Bong" />
+  <meta property="og:description" content="Check out the items in your cart and proceed to checkout!" />
+  <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
+  <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/cart.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cart | Brains, Brawn & Bong" />
+  <meta name="twitter:description" content="View your cart and get ready to checkout!" />
+  <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#10B981" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <nav>
+        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cart Content -->
+  <main class="flex-grow container mx-auto p-4">
+    <section class="text-center mb-8">
+      <h2 class="text-3xl md:text-4xl mb-4">Your Cart</h2>
+      <p class="text-lg md:text-xl">Here are the items you've added to your cart. Ready to checkout?</p>
+    </section>
+
+    <!-- Cart Items List -->
+    <section class="bg-gray-800 rounded-lg shadow-md p-6">
+      <div class="space-y-6">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <img src="icons/shopping-carts.png" alt="Shopping Cart" class="w-8 h-8 mr-2">
+            <h3 class="text-xl">Cart Items</h3>
+          </div>
+          <div class="text-lg font-bold">Total: $120.00</div>
+        </div>
+
+        <!-- Item 1 -->
+        <div class="flex justify-between items-center py-4 border-b border-gray-700">
+          <div class="flex items-center">
+            <img src="icons/add-to-cart.png" alt="Item Added" class="w-8 h-8 mr-4">
+            <span>Item Name</span>
+          </div>
+          <div class="flex space-x-2">
+            <span class="text-sm">Quantity: 1</span>
+            <span class="text-sm">Price: $40.00</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="flex justify-between items-center py-4 border-b border-gray-700">
+          <div class="flex items-center">
+            <img src="icons/add-to-cart.png" alt="Item Added" class="w-8 h-8 mr-4">
+            <span>Item Name</span>
+          </div>
+          <div class="flex space-x-2">
+            <span class="text-sm">Quantity: 2</span>
+            <span class="text-sm">Price: $80.00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Button -->
+    <div class="flex justify-center mt-6">
+      <a href="checkout.html" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition">Proceed to Checkout</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-4">
+    <div class="container mx-auto text-center">
+      <p>© 2023 Brains, Brawn & Bong. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
