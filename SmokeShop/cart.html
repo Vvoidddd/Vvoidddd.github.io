@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart | Brains, Brawn & Bong</title>
-  <meta name="description" content="View your cart and total items purchased at Brains, Brawn & Bong. Ready to elevate your experience?">
+
+  <!-- Title and Description -->
+  <title>Checkout | Brains, Brawn & Bong</title>
+  <meta name="description" content="Complete your purchase at Brains, Brawn & Bong. Review your cart and enter your payment details." />
 
   <!-- Open Graph Metadata -->
-  <meta property="og:title" content="Cart | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Your cart is waiting! View the items and total before checkout." />
+  <meta property="og:title" content="Checkout | Brains, Brawn & Bong" />
+  <meta property="og:description" content="Finalize your order and proceed to payment at Brains, Brawn & Bong." />
   <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
-  <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/cart.html" />
+  <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/checkout.html" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cart | Brains, Brawn & Bong" />
-  <meta name="twitter:description" content="Check out your cart items and finalize your purchase." />
+  <meta name="twitter:title" content="Checkout | Brains, Brawn & Bong" />
+  <meta name="twitter:description" content="Complete your purchase and enter payment details." />
   <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
 
   <!-- Theme Color -->
@@ -32,6 +34,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
@@ -43,29 +47,58 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-      <!-- Cart Icon -->
-      <div class="relative">
-        <a href="cart.html">
-          <img src="icons/shopping-carts.png" alt="Cart" class="text-white text-2xl" />
-          <span id="cart-count" class="absolute top-0 right-0 bg-green-500 text-xs rounded-full w-4 h-4 text-center text-white">0</span>
-        </a>
-      </div>
     </div>
   </header>
 
+  <!-- Checkout Content -->
   <main class="flex-grow container mx-auto p-4">
     <section class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl mb-4">Your Cart</h2>
-      <p class="text-lg md:text-xl">Review your items before checkout.</p>
+      <h2 class="text-3xl md:text-4xl mb-4">Checkout</h2>
+      <p class="text-lg md:text-xl">Review your order and provide your details to complete the purchase.</p>
     </section>
 
-    <section id="cart-items" class="space-y-4">
-      <!-- Cart items will be dynamically added here by JavaScript -->
+    <!-- Order Summary -->
+    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+      <h3 class="text-2xl mb-4">Order Summary</h3>
+
+      <!-- Cart Items Summary -->
+      <div class="space-y-4">
+        <div class="flex justify-between items-center py-2 border-b border-gray-700">
+          <span>Item Name</span>
+          <span>$40.00</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-gray-700">
+          <span>Item Name</span>
+          <span>$80.00</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center py-4 border-t border-gray-700 mt-4">
+        <h4 class="text-xl font-bold">Total: $120.00</h4>
+      </div>
     </section>
 
-    <section id="cart-total" class="text-center mt-8">
-      <p class="text-xl">Total: $<span id="total-price">0.00</span></p>
-      <button class="bg-green-500 text-white px-6 py-3 rounded-lg mt-4">Proceed to Checkout</button>
+    <!-- Billing Information -->
+    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+      <h3 class="text-2xl mb-4">Billing Information</h3>
+      <form>
+        <div class="mb-4">
+          <label for="name" class="block">Full Name</label>
+          <input type="text" id="name" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
+        </div>
+
+        <div class="mb-4">
+          <label for="email" class="block">Email Address</label>
+          <input type="email" id="email" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
+        </div>
+
+        <div class="mb-4">
+          <label for="address" class="block">Shipping Address</label>
+          <input type="text" id="address" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
+        </div>
+
+        <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg w-full">Complete Purchase</button>
+      </form>
     </section>
   </main>
 
@@ -75,6 +108,5 @@
     </div>
   </footer>
 
-  <script src="cart.js"></script>
 </body>
 </html>

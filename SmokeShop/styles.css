@@ -138,6 +138,22 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  border: 2px solid white; /* Border to highlight the cart count */
+}
+
+.cart-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: url('cart-icon.svg') no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.cart-icon:hover {
+  background-color: #4CAF50;
 }
 
 /* Footer */
