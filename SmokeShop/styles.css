@@ -1,66 +1,175 @@
+/* General Styles */
 body {
-    font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Horizon', sans-serif;
+  background-color: #1a202c; /* Dark background */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.site-name {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #10B981;
+}
+
+/* Header & Navigation */
+header {
+  background-color: #2d3748;
+  padding: 1rem 0;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+nav a {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #4CAF50;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #4CAF50;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Product Card */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #2d3748;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.product-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-info {
+  transform: translateY(0);
+}
+
+.product-info h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.product-info p {
+  font-size: 1rem;
+}
+
+.product-info button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-info button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Cart Icon */
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #10B981;
+  color: white;
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Footer */
+footer {
+  background-color: #2d3748;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .site-name {
-    font-family: 'Horizon', sans-serif;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .product-card {
-    position: relative;
-    overflow: hidden;
-  }
-  .product-card:hover .product-info {
-    transform: translateY(0);
-  }
-  .product-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
-    padding: 20px;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  nav a {
-    position: relative;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #4CAF50;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-  }
-  nav a:hover {
-    color: #4CAF50;
-  }
-  nav a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  button {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  button:hover {
-    background-color: #3e8e41;
-    transform: scale(1.05);
-  }
-  /* General Styles */
-body {
-    font-family: 'Horizon', sans-serif;
-  }
-  
-  .site-name {
-    font-family: 'Bebas Neue', sans-serif;
-    color: #10B981;
-  }
-  
+}
