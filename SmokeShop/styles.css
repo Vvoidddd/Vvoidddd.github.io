@@ -1,0 +1,57 @@
+body {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .site-name {
+    font-family: 'Horizon', sans-serif;
+  }
+  .product-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card:hover .product-info {
+    transform: translateY(0);
+  }
+  .product-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  nav a {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #4CAF50;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  nav a:hover {
+    color: #4CAF50;
+  }
+  nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  button:hover {
+    background-color: #3e8e41;
+    transform: scale(1.05);
+  }
+  
