@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | Brains, Brawn & Bong</title>
   <meta name="description" content="Explore our high-quality, street-level edibles, handpicked by the trio to elevate your experience.">
-
+  
   <!-- Open Graph Metadata -->
   <meta property="og:title" content="Shop | Brains, Brawn & Bong" />
   <meta property="og:description" content="Shop edibles and products designed by the trio, made to elevate and vibe." />
@@ -13,65 +13,63 @@
   <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/shop.html" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Card Metadata -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shop | Brains, Brawn & Bong" />
   <meta name="twitter:description" content="Shop our high-quality edibles made for fun, flavor, and flavor." />
   <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
 
-  <!-- Theme Color -->
   <meta name="theme-color" content="#10B981" />
-
-  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Styles & Scripts -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
+
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <h1 class="text-2xl md:text-3xl font-bold">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <ul class="flex space-x-4 text-base md:text-lg">
+          <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="about.html" class="hover:text-green-400">About</a></li>
+          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
       <!-- Cart Icon -->
       <div class="relative">
-        <a href="cart.html">
-          <img src="icons/shopping-carts.png" alt="Cart" class="text-white text-3xl" />
-          <span id="cart-count" class="absolute top-0 right-0 bg-green-500 text-xs rounded-full w-4 h-4 text-center text-white">0</span>
+        <a href="cart.html" class="block">
+          <img src="icons/icons8-cart-64.png" alt="Cart" class="w-8 h-8" />
+          <span id="cart-count" class="absolute top-0 right-0 -mt-1 -mr-1 bg-green-500 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center text-white">0</span>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="flex-grow container mx-auto p-4">
-    <section class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl mb-4">Shop Our Edibles</h2>
-      <p class="text-lg md:text-xl">Shop unique and fun edibles made by a trio. Elevate your vibe.</p>
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-6">
+    <section class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Shop Our Edibles</h2>
+      <p class="text-xl md:text-2xl text-gray-300">Unique, potent, and funny – made by the real ones, for the real ones.</p>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div class="bg-gray-800 p-6 rounded-lg shadow-lg product-card">
         <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Comic-book style trio" class="w-full h-64 object-cover rounded-lg mb-4" />
-        <h3 class="text-2xl mb-2">500 MG Comic-book Style Trio</h3>
-        <p class="text-lg mb-4">$10 per edible</p>
-        <button class="bg-green-500 text-white px-4 py-3 rounded-lg add-to-cart">Add to Cart</button>
+        <h3 class="text-2xl font-semibold mb-2">500 MG Comic-book Style Trio</h3>
+        <p class="text-lg text-gray-300 mb-4">$10 per edible</p>
+        <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg w-full add-to-cart">Add to Cart</button>
       </div>
     </section>
   </main>
 
-  <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center">
-      <p>© 2025 Brains, Brawn & Bong. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-4 mt-8">
+    <div class="container mx-auto text-center text-sm text-gray-400">
+      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
 
