@@ -1,14 +1,36 @@
 /* General Styles */
+@font-face {
+  font-family: "Evil Empire";
+  src: url("Fonts/Evil Empire.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Deep Shadown";
+  src: url("Fonts/Deep Shadown.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Seven Moon";
+  src: url("Fonts/Seven Moon.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Horizon', sans-serif;
+  font-family: "Seven Moon", sans-serif;
   background-color: #1a202c; /* Dark background */
   color: white;
   margin: 0;
   padding: 0;
 }
 
+/* Site Name */
 .site-name {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Evil Empire", sans-serif;
   color: #10B981;
 }
 
@@ -139,7 +161,7 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   padding: 0;
-  border: 2px solid white; /* Border to highlight the cart count */
+  border: 2px solid white;
 }
 
 .cart-icon {
@@ -162,6 +184,7 @@ footer {
   padding: 1rem;
   text-align: center;
   font-size: 0.875rem;
+  color: #A0AEC0;
 }
 
 /* Layout */
@@ -188,4 +211,37 @@ footer {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Shared Font for Branding */
+body {
+  font-family: 'Seven Moon', sans-serif;
+}
+
+.site-name {
+  font-family: 'Evil Empire', sans-serif;
+  color: #10B981;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bg-gray-900 {
+  background-color: #1a202c;
+}
+
+.text-white {
+  color: white;
 }
