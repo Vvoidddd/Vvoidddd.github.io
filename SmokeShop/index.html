@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brains, Brawn & Bong</title>
-  <meta name="description" content="Brains, Brawn & Bong – A trio-owned smoke shop. Funny, raw, and real.">
+  <meta name="description" content="Brains, Brawn & Bong – A trio-owned smoke shop. Funny, raw, and real." />
   <meta property="og:title" content="Brains, Brawn & Bong – Smoke Shop" />
   <meta property="og:description" content="Three heads. One mission. Hella high. Shop edibles, support the trio." />
   <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
@@ -14,16 +14,15 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
-
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-bold">Brains, Brawn & Bong</h1>
+      <h1 class="site-name text-3xl md:text-4xl font-extrabold tracking-wide">
+        Brains, Brawn & Bong
+      </h1>
       <nav>
-        <ul class="flex space-x-4 text-base md:text-lg">
+        <ul class="flex space-x-4 text-base md:text-lg uppercase">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
@@ -32,18 +31,19 @@
       </nav>
       <!-- Cart Icon -->
       <div class="relative">
-        <a href="cart.html" class="block">
-          <img src="icons/icons8-cart-64.png" alt="Cart" class="w-8 h-8" />
-          <span id="cart-count" class="absolute top-0 right-0 -mt-1 -mr-1 bg-green-500 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center text-white">0</span>
+        <a href="cart.html" class="block hover:text-green-500 transition-all duration-200">
+          <i class="fas fa-shopping-cart text-2xl md:text-3xl text-white hover:text-green-500 transition-all duration-200"></i>
+          <span id="cart-count" class="absolute top-0 right-0 -mt-1 -mr-1 bg-green-500 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Main -->
   <main class="flex-grow flex flex-col items-center justify-center text-center px-6">
     <div class="max-w-3xl">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6">Brains. Brawn. Bong.</h2>
+      <h2 class="text-5xl md:text-6xl font-bold mb-6">
+        Brains. Brawn. Bong.
+      </h2>
       <p class="text-xl md:text-2xl text-gray-300 mb-10">
         This ain't just a shop. It's a movement. A trio of real ones serving up flavor and fun with zero fluff.
       </p>
@@ -53,7 +53,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
     <div class="container mx-auto text-center text-sm text-gray-400">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
