@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed view of the product with images, description, and purchase options." />
+  
+  <!-- Open Graph Meta Tags (Dynamically Updated) -->
+  <meta property="og:title" content="Smartiez | 5G Indica Disposable" id="og-title">
+  <meta property="og:description" content="Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down." id="og-description">
+  <meta property="og:image" content="icons/SUMO.png" id="og-image">
+
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
@@ -119,6 +125,11 @@
     document.getElementById('product-name').textContent = prod.name;
     document.getElementById('product-main-desc').textContent = prod.mainDesc;
     document.getElementById('product-price').textContent = `$${prod.price.toFixed(2)}`;
+
+    // Update Open Graph Meta Tags dynamically
+    document.querySelector('#og-title').setAttribute('content', prod.name);
+    document.querySelector('#og-description').setAttribute('content', prod.mainDesc);
+    document.querySelector('#og-image').setAttribute('content', prod.images[0]);
 
     // Features list
     const featList = document.getElementById('product-features');
