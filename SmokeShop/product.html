@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details | Brains, Brawn & Bong</title>
+  <meta name="description" content="Detailed view of the product with images, description, and purchase options." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <header class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <nav>
+        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow container mx-auto p-4">
+    <button id="back-button" class="mb-4 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded">← Back to Shop</button>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Product Images -->
+      <div>
+        <img id="main-product-image" src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Product Image" class="w-full rounded-lg mb-4" />
+        <div class="flex space-x-4">
+          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 1" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
+          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 2" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
+          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 3" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div>
+        <h2 class="text-3xl font-bold mb-4" id="product-name">Edible Magic</h2>
+        <p class="mb-6 text-gray-400" id="product-description">
+          An edible made from the finest ingredients, with magical properties to elevate your vibe.
+        </p>
+        <p class="text-2xl font-semibold mb-6" id="product-price">$30.00</p>
+        <button id="add-to-cart-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition w-full">
+          Add to Cart
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 p-4">
+    <div class="container mx-auto text-center text-sm text-gray-400">
+      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Thumbnail click to change main image
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        document.getElementById('main-product-image').src = thumb.src;
+      });
+    });
+
+    // Add to cart button functionality
+    document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+      const product = {
+        name: document.getElementById('product-name').textContent,
+        description: document.getElementById('product-description').textContent,
+        price: parseFloat(document.getElementById('product-price').textContent.replace('$', '')),
+        image: document.getElementById('main-product-image').src
+      };
+      addToCart(product);
+      alert('Product added to cart!');
+    });
+
+    // Back button functionality with scroll restoration
+    document.getElementById('back-button').addEventListener('click', () => {
+      const scrollPos = sessionStorage.getItem('shopScrollPos') || 0;
+      window.location.href = 'shop.html';
+      sessionStorage.setItem('restoreScroll', scrollPos);
+    });
+
+    // On page load, restore scroll position if available
+    window.addEventListener('load', () => {
+      const restoreScroll = sessionStorage.getItem('restoreScroll');
+      if (restoreScroll) {
+        window.scrollTo(0, parseInt(restoreScroll));
+        sessionStorage.removeItem('restoreScroll');
+      }
+    });
+  </script>
+
+</body>
+</html>
