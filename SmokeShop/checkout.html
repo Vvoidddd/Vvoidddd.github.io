@@ -3,136 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Title and Description -->
   <title>Checkout | Brains, Brawn & Bong</title>
-  <meta name="description" content="Complete your purchase at Brains, Brawn & Bong. Review your cart and enter your payment details." />
-
-  <!-- Open Graph Metadata -->
-  <meta property="og:title" content="Checkout | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Finalize your order and proceed to payment at Brains, Brawn & Bong." />
-  <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
-  <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/checkout.html" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card Metadata -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Checkout | Brains, Brawn & Bong" />
-  <meta name="twitter:description" content="Complete your purchase and enter payment details." />
-  <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
-
-  <!-- Theme Color -->
-  <meta name="theme-color" content="#10B981" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Styles & Scripts -->
+  <meta name="description" content="Complete your purchase at Brains, Brawn & Bong. Secure checkout for your favorite edibles." />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-
-  <!-- Header -->
+  <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
+    <img src="icons/image_2025-04-23_213742023-removebg-preview.png" alt="Transition Image" class="max-w-full max-h-full" />
+  </div>
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <h1 class="site-name text-3xl md:text-4xl font-extrabold tracking-wide">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <ul class="flex space-x-4 text-base md:text-lg uppercase">
+          <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="about.html" class="hover:text-green-400">About</a></li>
+          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Checkout Content -->
   <main class="flex-grow container mx-auto p-4">
-    <section class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl mb-4">Checkout</h2>
-      <p class="text-lg md:text-xl">Review your order and provide your details to complete the purchase.</p>
-    </section>
-
-    <!-- Order Summary -->
-    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-      <h3 class="text-2xl mb-4">Order Summary</h3>
-
-      <!-- Cart Items Summary -->
-      <div class="space-y-4">
-        <div class="flex justify-between items-center py-2 border-b border-gray-700">
-          <span>Item Name</span>
-          <span>$40.00</span>
-        </div>
-        <div class="flex justify-between items-center py-2 border-b border-gray-700">
-          <span>Item Name</span>
-          <span>$80.00</span>
-        </div>
-      </div>
-
-      <div class="flex justify-between items-center py-4 border-t border-gray-700 mt-4">
-        <h4 class="text-xl font-bold">Total: $120.00</h4>
-      </div>
-    </section>
-
-    <!-- Billing Information -->
-    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-      <h3 class="text-2xl mb-4">Billing Information</h3>
-      <form action="#" method="POST">
-        <div class="space-y-4">
-          <div>
-            <label for="name" class="block text-sm font-bold mb-2">Full Name</label>
-            <input type="text" id="name" name="name" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-          </div>
-          <div>
-            <label for="address" class="block text-sm font-bold mb-2">Shipping Address</label>
-            <input type="text" id="address" name="address" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-bold mb-2">Email Address</label>
-            <input type="email" id="email" name="email" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-          </div>
-        </div>
-    </section>
-
-    <!-- Payment Information -->
-    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-      <h3 class="text-2xl mb-4">Payment Information</h3>
-      <div class="space-y-4">
-        <div>
-          <label for="credit-card" class="block text-sm font-bold mb-2">Credit Card Number</label>
-          <input type="text" id="credit-card" name="credit-card" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-        </div>
-        <div>
-          <label for="exp-date" class="block text-sm font-bold mb-2">Expiration Date</label>
-          <input type="month" id="exp-date" name="exp-date" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-        </div>
-        <div>
-          <label for="cvv" class="block text-sm font-bold mb-2">CVV</label>
-          <input type="text" id="cvv" name="cvv" class="w-full p-2 rounded-lg bg-gray-700 text-white" required />
-        </div>
-      </div>
-    </section>
-
-    <!-- Checkout Button -->
-    <div class="flex justify-center">
-      <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition">
-        Complete Purchase
-      </button>
-    </div>
-    </form>
+    <h2 class="text-3xl md:text-4xl mb-4">Checkout</h2>
+    <p class="mb-6 text-gray-400">Complete your purchase securely and easily.</p>
+    <!-- Add checkout form and details here -->
   </main>
 
-  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center">
-      <p>© 2023 Brains, Brawn & Bong. All rights reserved.</p>
+    <div class="container mx-auto text-center text-sm text-gray-400">
+      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script src="fade.js"></script>
 </body>
 </html>
