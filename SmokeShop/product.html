@@ -6,93 +6,176 @@
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed view of the product with images, description, and purchase options." />
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
 
+  <!-- Page Transition Overlay (optional) -->
+  <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
+    <img src="icons/image_2025-04-23_213742023-removebg-preview.png" alt="Transition" class="max-w-full max-h-full" />
+  </div>
+
+  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold tracking-wide">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+        <ul class="flex space-x-4 uppercase text-lg">
+          <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="about.html" class="hover:text-green-400">About</a></li>
+          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
+      <div class="relative">
+        <a href="cart.html" class="text-white hover:text-green-500">
+          <i class="fas fa-shopping-cart text-3xl"></i>
+          <span id="cart-count" class="absolute top-0 right-0 bg-green-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="flex-grow container mx-auto p-4">
-    <button id="back-button" class="mb-4 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded">← Back to Shop</button>
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Product Images -->
-      <div>
-        <img id="main-product-image" src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Product Image" class="w-full rounded-lg mb-4" />
-        <div class="flex space-x-4">
-          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 1" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
-          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 2" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
-          <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Thumbnail 3" class="w-20 h-20 object-cover rounded cursor-pointer thumbnail" />
-        </div>
-      </div>
+  <!-- Main Product Section -->
+  <main class="flex-grow container mx-auto p-6 max-w-3xl">
+    <button id="back-button" class="mb-6 flex items-center gap-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
+      <i class="fas fa-arrow-left"></i>
+      Back to Shop
+    </button>
 
-      <!-- Product Details -->
-      <div>
-        <h2 class="text-3xl font-bold mb-4" id="product-name">Edible Magic</h2>
-        <p class="mb-6 text-gray-400" id="product-description">
-          An edible made from the finest ingredients, with magical properties to elevate your vibe.
-        </p>
-        <p class="text-2xl font-semibold mb-6" id="product-price">$30.00</p>
-        <button id="add-to-cart-btn" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition w-full">
-          Add to Cart
+    <section class="text-center">
+      <h2 id="product-name" class="text-4xl font-extrabold mb-4"></h2>
+      <p id="product-main-desc" class="text-gray-400 mb-6 text-lg"></p>
+
+      <!-- Image Carousel -->
+      <div class="relative mb-6">
+        <img id="product-image" src="" alt="" class="w-full h-auto rounded-lg" />
+        <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-green-600 p-2 rounded-full">
+          <i class="fas fa-chevron-left text-white"></i>
+        </button>
+        <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 hover:bg-green-600 p-2 rounded-full">
+          <i class="fas fa-chevron-right text-white"></i>
         </button>
       </div>
+
+      <p id="product-price" class="text-3xl font-semibold text-green-400 mb-8"></p>
+      <button id="add-to-cart-btn" class="bg-green-500 hover:bg-green-600 w-full py-4 rounded-lg font-bold uppercase mb-8">
+        Add to Cart
+      </button>
+
+      <!-- Feature List -->
+      <ul id="product-features" class="space-y-3 text-left">
+        <!-- Filled dynamically -->
+      </ul>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-sm text-gray-400">
+    <div class="container mx-auto text-center text-gray-400">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
 
+  <!-- Inline Script to load product data and handle carousel -->
   <script>
-    // Thumbnail click to change main image
-    document.querySelectorAll('.thumbnail').forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        document.getElementById('main-product-image').src = thumb.src;
-      });
-    });
+    // Define products
+    const products = {
+      smartiez: {
+        name: 'Smartiez | 5G Indica Disposable',
+        price: 50.00,
+        mainDesc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
+        features: [
+          'Premium rosin blend delivering a clean and potent experience.',
+          'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
+          '5g disposable design for on-the-go enjoyment.'
+        ],
+        images: ['icons/SUMO.png', 'icons/SUMO2.png']
+      },
+      strawnana: {
+        name: 'Strawnana | 5G Hybrid Disposable',
+        price: 50.00,
+        mainDesc: 'Savor the sweet and fruity flavor of Strawnana, a balanced hybrid for your perfect escape.',
+        features: [
+          'Premium rosin blend delivering a clean and potent experience.',
+          'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
+          '5g disposable design for on-the-go enjoyment.'
+        ],
+        images: ['icons/Strawnana.png', 'icons/Strawnana2.png']
+      }
+    };
 
-    // Add to cart button functionality
-    document.getElementById('add-to-cart-btn').addEventListener('click', () => {
-      const product = {
-        name: document.getElementById('product-name').textContent,
-        description: document.getElementById('product-description').textContent,
-        price: parseFloat(document.getElementById('product-price').textContent.replace('$', '')),
-        image: document.getElementById('main-product-image').src
-      };
-      addToCart(product);
-      alert('Product added to cart!');
-    });
-
-    // Back button functionality with scroll restoration
-    document.getElementById('back-button').addEventListener('click', () => {
-      const scrollPos = sessionStorage.getItem('shopScrollPos') || 0;
+    // Grab the product key from URL
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('product');
+    if (!products[key]) {
+      // If invalid, redirect back
       window.location.href = 'shop.html';
-      sessionStorage.setItem('restoreScroll', scrollPos);
+    }
+
+    // Populate page
+    const prod = products[key];
+    document.getElementById('product-name').textContent = prod.name;
+    document.getElementById('product-main-desc').textContent = prod.mainDesc;
+    document.getElementById('product-price').textContent = `$${prod.price.toFixed(2)}`;
+
+    // Features list
+    const featList = document.getElementById('product-features');
+    prod.features.forEach(txt => {
+      const li = document.createElement('li');
+      li.className = 'flex items-start';
+      li.innerHTML = `
+        <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
+        <span>${txt}</span>
+      `;
+      featList.appendChild(li);
     });
 
-    // On page load, restore scroll position if available
+    // Carousel logic
+    let idx = 0;
+    const imgEl = document.getElementById('product-image');
+    const showImage = () => {
+      imgEl.src = prod.images[idx];
+      imgEl.alt = `${prod.name} image ${idx+1}`;
+    };
+    showImage();
+
+    document.getElementById('next-btn').onclick = () => {
+      idx = (idx + 1) % prod.images.length;
+      showImage();
+    };
+    document.getElementById('prev-btn').onclick = () => {
+      idx = (idx - 1 + prod.images.length) % prod.images.length;
+      showImage();
+    };
+
+    // Add to cart
+    document.getElementById('add-to-cart-btn').onclick = () => {
+      addToCart({
+        id: key,
+        name: prod.name,
+        price: prod.price,
+        image: prod.images[idx]
+      });
+      alert(`Added ${prod.name} to cart!`);
+    };
+
+    // Back button
+    document.getElementById('back-button').onclick = () => {
+      const scrollPos = sessionStorage.getItem('shopScrollPos') || 0;
+      sessionStorage.setItem('restoreScroll', scrollPos);
+      window.location.href = 'shop.html';
+    };
+
+    // Restore scroll on return
     window.addEventListener('load', () => {
-      const restoreScroll = sessionStorage.getItem('restoreScroll');
-      if (restoreScroll) {
-        window.scrollTo(0, parseInt(restoreScroll));
+      const rs = sessionStorage.getItem('restoreScroll');
+      if (rs) {
+        window.scrollTo(0, parseInt(rs));
         sessionStorage.removeItem('restoreScroll');
       }
     });
   </script>
-
 </body>
 </html>

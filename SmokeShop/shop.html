@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | Brains, Brawn & Bong</title>
-  <meta name="description" content="Explore our high-quality, street-level edibles, handpicked by the trio to elevate your experience.">
+  <meta name="description" content="Explore our high-quality, street-level disposables, handpicked by the trio to elevate your chill." />
   <meta property="og:title" content="Shop | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Shop edibles and products designed by the trio, made to elevate and vibe." />
-  <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
+  <meta property="og:description" content="Shop 5g disposable hybrids and indicas made to elevate and vibe." />
+  <meta property="og:image" content="icons/SUMO.png" />
   <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/shop.html" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#10B981" />
@@ -17,13 +17,15 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
+        <ul class="flex space-x-6 uppercase text-lg">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
-          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="shop.html" class="hover:text-green-400 font-bold">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
           <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
@@ -31,38 +33,83 @@
     </div>
   </header>
 
-  <main class="flex-grow container mx-auto p-4">
+  <!-- Main Shop Grid -->
+  <main class="flex-grow container mx-auto p-6">
     <section class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl mb-4">Shop Our Edibles</h2>
-      <p class="text-lg md:text-xl">Shop unique and fun edibles made by a trio. Elevate your vibe.</p>
+      <h2 class="text-4xl font-extrabold">Shop Our 5G Disposables</h2>
+      <p class="text-gray-400 mt-2">Premium rosin blend, full-spectrum effects, on-the-go design.</p>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-      <a href="product.html" class="block bg-gray-800 p-6 rounded-lg shadow-lg product-card">
-        <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Product" class="w-full h-32 object-cover mb-4 rounded-md" />
-        <h3 class="text-xl mb-2">Edible Magic</h3>
-        <p class="mb-4 text-gray-400">An edible made from the finest ingredients, with magical properties to elevate your vibe.</p>
-        <p class="text-lg">$30 per edible</p>
-        <button class="add-to-cart mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition" onclick="event.preventDefault(); addToCart({name:'Edible Magic', description:'An edible made from the finest ingredients, with magical properties to elevate your vibe.', price:30.00, image:'https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg'}); alert('Added to cart!');">Add to Cart</button>
-      </a>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Smartiez Card -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <img src="icons/SUMO.png" alt="Smartiez 5G Indica Disposable" class="w-full h-48 object-cover" />
+        <div class="p-6 flex-grow flex flex-col">
+          <h3 class="text-2xl font-semibold mb-2">Smartiez | 5G Indica Disposable</h3>
+          <p class="text-gray-400 flex-grow mb-4">
+            Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.
+          </p>
+          <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
+          <div class="mt-auto flex space-x-2">
+            <button
+              onclick="addToCart({id:'smartiez', name:'Smartiez | 5G Indica Disposable', price:50.00, image:'icons/SUMO.png'}); alert('Added Smartiez to cart!');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg uppercase font-bold transition">
+              Add to Cart
+            </button>
+            <a
+              href="product.html?product=smartiez"
+              onclick="sessionStorage.setItem('shopScrollPos', window.scrollY);"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg uppercase font-bold transition">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strawnana Card -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <img src="icons/Strawnana.png" alt="Strawnana 5G Hybrid Disposable" class="w-full h-48 object-cover" />
+        <div class="p-6 flex-grow flex flex-col">
+          <h3 class="text-2xl font-semibold mb-2">Strawnana | 5G Hybrid Disposable</h3>
+          <p class="text-gray-400 flex-grow mb-4">
+            Savor the sweet and fruity flavor of Strawnana, a balanced hybrid for your perfect escape.
+          </p>
+          <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
+          <div class="mt-auto flex space-x-2">
+            <button
+              onclick="addToCart({id:'strawnana', name:'Strawnana | 5G Hybrid Disposable', price:50.00, image:'icons/Strawnana.png'}); alert('Added Strawnana to cart!');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg uppercase font-bold transition">
+              Add to Cart
+            </button>
+            <a
+              href="product.html?product=strawnana"
+              onclick="sessionStorage.setItem('shopScrollPos', window.scrollY);"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg uppercase font-bold transition">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-sm text-gray-400">
+    <div class="container mx-auto text-center text-gray-400">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
-    // Save scroll position before navigating to product page
-    document.querySelectorAll('a[href="product.html"]').forEach(link => {
-      link.addEventListener('click', () => {
-        sessionStorage.setItem('shopScrollPos', window.scrollY);
-      });
+    // Restore scroll when coming back from product page
+    window.addEventListener('load', () => {
+      const restore = sessionStorage.getItem('shopScrollPos');
+      if (restore) {
+        window.scrollTo(0, parseInt(restore));
+        sessionStorage.removeItem('shopScrollPos');
+      }
     });
   </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
