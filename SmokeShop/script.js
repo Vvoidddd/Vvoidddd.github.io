@@ -1,3 +1,5 @@
+// Cart management script
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartCount = document.getElementById('cart-count');
@@ -6,12 +8,14 @@ const totalPriceElement = document.getElementById('total-price');
 const cartSummaryElement = document.getElementById('cart-summary');
 const orderTotalElement = document.getElementById('order-total');
 
-// Update Cart Count
+// Update the cart count badge
 function updateCartCount() {
-  if (cartCount) cartCount.textContent = cart.length;
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+  }
 }
 
-// Update Cart Display
+// Render cart items in the cart display container
 function updateCartDisplay() {
   if (cartItemsContainer) {
     cartItemsContainer.innerHTML = '';
@@ -22,7 +26,7 @@ function updateCartDisplay() {
       cartItem.className = 'flex justify-between items-center bg-gray-800 p-4 rounded-lg mb-4';
       cartItem.innerHTML = `
         <div class="flex">
-          <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover mr-4 rounded-md">
+          <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover mr-4 rounded-md" />
           <div class="flex flex-col">
             <span>${item.name}</span>
             <span class="text-sm text-gray-400">${item.description}</span>
@@ -33,7 +37,9 @@ function updateCartDisplay() {
       total += item.price;
     });
 
-    totalPriceElement.textContent = total.toFixed(2);
+    if (totalPriceElement) {
+      totalPriceElement.textContent = total.toFixed(2);
+    }
   }
 
   // Update cart summary on checkout page
@@ -51,16 +57,18 @@ function updateCartDisplay() {
       total += item.price;
     });
 
-    orderTotalElement.textContent = total.toFixed(2);
+    if (orderTotalElement) {
+      orderTotalElement.textContent = total.toFixed(2);
+    }
   }
 }
 
-// Store cart in local storage
+// Save cart to localStorage
 function saveCartToLocalStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Add item to cart (simulating adding products)
+// Add an item to the cart
 function addToCart(item) {
   cart.push(item);
   saveCartToLocalStorage();
@@ -68,14 +76,18 @@ function addToCart(item) {
   updateCartDisplay();
 }
 
-// Example usage: Add a product to the cart
-addToCart({
-  name: "Glass Bong",
-  description: "A sleek glass bong for your smoking needs.",
-  price: 50.00,
-  image: "images/bong.jpg"
-});
+// Remove an item from the cart by index
+function removeFromCart(index) {
+  if (index >= 0 && index < cart.length) {
+    cart.splice(index, 1);
+    saveCartToLocalStorage();
+    updateCartCount();
+    updateCartDisplay();
+  }
+}
 
-// Initialize cart on page load
-updateCartCount();
-updateCartDisplay();
+// Initialize cart display on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+  updateCartDisplay();
+});
