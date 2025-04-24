@@ -28,13 +28,6 @@
           <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
-      <!-- Cart Icon -->
-      <div class="relative">
-        <a href="cart.html" class="block hover:text-green-500 transition-all duration-200">
-          <i class="fas fa-shopping-cart text-2xl md:text-3xl text-white hover:text-green-500 transition-all duration-200"></i>
-          <span id="cart-count" class="absolute top-0 right-0 -mt-1 -mr-1 bg-green-500 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
-        </a>
-      </div>
     </div>
   </header>
 
@@ -45,13 +38,13 @@
     </section>
 
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-      <div class="bg-gray-800 p-6 rounded-lg shadow-lg product-card">
-        <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Product" class="w-full h-32 object-cover mb-4 rounded-md">
+      <a href="product.html" class="block bg-gray-800 p-6 rounded-lg shadow-lg product-card">
+        <img src="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" alt="Product" class="w-full h-32 object-cover mb-4 rounded-md" />
         <h3 class="text-xl mb-2">Edible Magic</h3>
         <p class="mb-4 text-gray-400">An edible made from the finest ingredients, with magical properties to elevate your vibe.</p>
         <p class="text-lg">$30 per edible</p>
-        <button class="add-to-cart mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition">Add to Cart</button>
-      </div>
+        <button class="add-to-cart mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition" onclick="event.preventDefault(); addToCart({name:'Edible Magic', description:'An edible made from the finest ingredients, with magical properties to elevate your vibe.', price:30.00, image:'https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg'}); alert('Added to cart!');">Add to Cart</button>
+      </a>
     </section>
   </main>
 
@@ -60,6 +53,15 @@
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    // Save scroll position before navigating to product page
+    document.querySelectorAll('a[href="product.html"]').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('shopScrollPos', window.scrollY);
+      });
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
