@@ -2,30 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed view of the product with images, description, and purchase options." />
-  
-  <!-- Open Graph Meta Tags (Dynamically Updated) -->
-  <meta property="og:title" content="Smartiez | 5G Indica Disposable" id="og-title">
-  <meta property="og:description" content="Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down." id="og-description">
-  <meta property="og:image" content="icons/SUMO.png" id="og-image">
+  <meta property="og:title" content="" id="og-title">
+  <meta property="og:description" content="" id="og-description">
+  <meta property="og:image" content="" id="og-image">
 
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'Xanmono-Italic';
+      src: url('fonts/Xanmono-Italic.ttf') format('truetype');
+      font-style: italic;
+      font-weight: normal;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-
-  <!-- Page Transition Overlay (optional) -->
-  <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
-    <img src="icons/image_2025-04-23_213742023-removebg-preview.png" alt="Transition" class="max-w-full max-h-full" />
-  </div>
 
   <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-wide">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
       <nav>
         <ul class="flex space-x-4 uppercase text-lg">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
@@ -34,35 +36,26 @@
           <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
-      <div class="relative">
-        <a href="cart.html" class="text-white hover:text-green-500">
-          <i class="fas fa-shopping-cart text-3xl"></i>
-          <span id="cart-count" class="absolute top-0 right-0 bg-green-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
-        </a>
-      </div>
+      <a href="cart.html" class="relative text-white hover:text-green-500">
+        <i class="fas fa-shopping-cart text-3xl"></i>
+        <span id="cart-count" class="absolute -top-1 -right-1 bg-green-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </a>
     </div>
   </header>
 
   <!-- Main Product Section -->
   <main class="flex-grow container mx-auto p-6 max-w-3xl">
     <button id="back-button" class="mb-6 flex items-center gap-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
-      <i class="fas fa-arrow-left"></i>
-      Back to Shop
+      <i class="fas fa-arrow-left"></i> Back to Shop
     </button>
 
     <section class="text-center">
-      <h2 id="product-name" class="text-4xl font-extrabold mb-4"></h2>
-      <p id="product-main-desc" class="text-gray-400 mb-6 text-lg"></p>
+      <h2 id="product-name" class="text-4xl font-extrabold mb-4" style="font-family:'Xanmono-Italic';"></h2>
+      <p id="product-main-desc" class="text-gray-400 mb-6 text-lg" style="font-family:'Xanmono-Italic';"></p>
 
-      <!-- Image Carousel -->
+      <!-- Image -->
       <div class="relative mb-6">
         <img id="product-image" src="" alt="" class="w-full h-auto rounded-lg" />
-        <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 hover:bg-green-600 p-2 rounded-full">
-          <i class="fas fa-chevron-left text-white"></i>
-        </button>
-        <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 hover:bg-green-600 p-2 rounded-full">
-          <i class="fas fa-chevron-right text-white"></i>
-        </button>
       </div>
 
       <p id="product-price" class="text-3xl font-semibold text-green-400 mb-8"></p>
@@ -70,10 +63,8 @@
         Add to Cart
       </button>
 
-      <!-- Feature List -->
-      <ul id="product-features" class="space-y-3 text-left">
-        <!-- Filled dynamically -->
-      </ul>
+      <!-- Features -->
+      <ul id="product-features" class="space-y-3 text-left"></ul>
     </section>
   </main>
 
@@ -84,9 +75,7 @@
     </div>
   </footer>
 
-  <!-- Inline Script to load product data and handle carousel -->
   <script>
-    // Define products
     const products = {
       smartiez: {
         name: 'Smartiez | 5G Indica Disposable',
@@ -97,7 +86,7 @@
           'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
           '5g disposable design for on-the-go enjoyment.'
         ],
-        images: ['icons/SUMO.png', 'icons/SUMO2.png']
+        images: ['icons/SUMO.png','icons/SUMO2.png']
       },
       strawnana: {
         name: 'Strawnana | 5G Hybrid Disposable',
@@ -108,84 +97,46 @@
           'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
           '5g disposable design for on-the-go enjoyment.'
         ],
-        images: ['icons/Strawnana.png', 'icons/Strawnana2.png']
+        images: ['icons/Strawnana.png','icons/Strawnana2.png']
+      },
+      celestial_blueberry: {
+        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
+        price: 7.00,
+        mainDesc: 'Indulge in the cosmic sweetness of Celestial Blueberry – handcrafted gummies delivering 500mg of pure bliss.',
+        features: [
+          'Made with real fruit extracts for an authentic taste.',
+          '500mg of pure THC, with 20 pieces per pack.',
+          'Available in bottles for extended relaxation.'
+        ],
+        images: ['icons/CELESTIALBLUEBERRY.png','icons/CELESTIALBLUEBERRY2.png']
       }
     };
 
-    // Grab the product key from URL
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get('product');
-    if (!products[key]) {
-      // If invalid, redirect back
-      window.location.href = 'shop.html';
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product') || 'smartiez';
+    const product = products[productId];
 
-    // Populate page
-    const prod = products[key];
-    document.getElementById('product-name').textContent = prod.name;
-    document.getElementById('product-main-desc').textContent = prod.mainDesc;
-    document.getElementById('product-price').textContent = `$${prod.price.toFixed(2)}`;
-
-    // Update Open Graph Meta Tags dynamically
-    document.querySelector('#og-title').setAttribute('content', prod.name);
-    document.querySelector('#og-description').setAttribute('content', prod.mainDesc);
-    document.querySelector('#og-image').setAttribute('content', prod.images[0]);
-
-    // Features list
-    const featList = document.getElementById('product-features');
-    prod.features.forEach(txt => {
+    document.getElementById('product-name').innerText = product.name;
+    document.getElementById('product-main-desc').innerText = product.mainDesc;
+    document.getElementById('product-price').innerText = `$${product.price.toFixed(2)}`;
+    document.getElementById('product-image').src = product.images[0];
+    
+    const featuresList = document.getElementById('product-features');
+    product.features.forEach(feature => {
       const li = document.createElement('li');
-      li.className = 'flex items-start';
-      li.innerHTML = `
-        <i class="fas fa-check text-green-400 mt-1 mr-3"></i>
-        <span>${txt}</span>
-      `;
-      featList.appendChild(li);
+      li.textContent = feature;
+      featuresList.appendChild(li);
     });
 
-    // Carousel logic
-    let idx = 0;
-    const imgEl = document.getElementById('product-image');
-    const showImage = () => {
-      imgEl.src = prod.images[idx];
-      imgEl.alt = `${prod.name} image ${idx+1}`;
-    };
-    showImage();
+    const cartBtn = document.getElementById('add-to-cart-btn');
+    cartBtn.addEventListener('click', () => {
+      addToCart({id:productId,name:product.name,price:product.price,image:product.images[0]});
+      alert('Added to cart!');
+    });
 
-    document.getElementById('next-btn').onclick = () => {
-      idx = (idx + 1) % prod.images.length;
-      showImage();
-    };
-    document.getElementById('prev-btn').onclick = () => {
-      idx = (idx - 1 + prod.images.length) % prod.images.length;
-      showImage();
-    };
-
-    // Add to cart
-    document.getElementById('add-to-cart-btn').onclick = () => {
-      addToCart({
-        id: key,
-        name: prod.name,
-        price: prod.price,
-        image: prod.images[idx]
-      });
-      alert(`Added ${prod.name} to cart!`);
-    };
-
-    // Back button
-    document.getElementById('back-button').onclick = () => {
-      const scrollPos = sessionStorage.getItem('shopScrollPos') || 0;
-      sessionStorage.setItem('restoreScroll', scrollPos);
-      window.location.href = 'shop.html';
-    };
-
-    // Restore scroll on return
-    window.addEventListener('load', () => {
-      const rs = sessionStorage.getItem('restoreScroll');
-      if (rs) {
-        window.scrollTo(0, parseInt(rs));
-        sessionStorage.removeItem('restoreScroll');
-      }
+    const backBtn = document.getElementById('back-button');
+    backBtn.addEventListener('click', () => {
+      window.history.back();
     });
   </script>
 </body>
