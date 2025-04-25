@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Shop | Brains, Brawn & Bong</title>
-  <meta name="description" content="Explore our high-quality disposables & gummies, handpicked to elevate your chill." />
+  <meta name="description" content="Explore our high-quality disposables, gummies & vapes, handpicked to elevate your chill." />
   <meta property="og:title" content="Shop | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Shop 5g disposables & RED TRIANGLE BLACK EDITION gummies made to elevate and vibe." />
+  <meta property="og:description" content="Shop 5G disposables, RED TRIANGLE BLACK EDITION gummies & Off Stamp X-CUBE vape kits to vibe." />
   <meta property="og:image" content="icons/SUMO.png" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#10B981" />
@@ -17,11 +17,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
   <style>
+    /* Xanmono-Italic for titles/descriptions */
     @font-face {
       font-family: 'Xanmono-Italic';
       src: url('fonts/Xanmono-Italic.ttf') format('truetype');
       font-style: italic;
-      font-weight: normal;
     }
   </style>
 </head>
@@ -45,88 +45,97 @@
   <!-- Main Shop Grid -->
   <main class="flex-grow container mx-auto p-6">
     <section class="text-center mb-8">
-      <h2 class="text-4xl font-extrabold">Shop Our 5G Disposables & Gummies</h2>
-      <p class="text-gray-400 mt-2">Premium rosin blend, full-spectrum effects, on-the-go design.</p>
+      <h2 class="text-4xl font-extrabold">Shop Our 5G Disposables, Gummies & Vapes</h2>
+      <p class="text-gray-400 mt-2">Premium on-the-go products to elevate your chill.</p>
     </section>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Smartiez Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <img src="icons/SUMO.png" alt="Smartiez 5G Indica Disposable" class="w-full h-48 object-cover" />
+      <!-- Smartiez -->
+      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
+        <img src="icons/SUMO.png" alt="Smartiez" class="w-full h-48 object-cover"/>
         <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
-            Smartiez | 5G Indica Disposable
-          </h3>
+          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">Smartiez | 5G Indica</h3>
           <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.
+            Relax with the sweet and fruity cannabis indica blend.
           </p>
           <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
           <div class="mt-auto flex space-x-2">
-            <button
-              onclick="addToCart({id:'smartiez',name:'Smartiez | 5G Indica Disposable',price:50,image:'icons/SUMO.png'});alert('Added Smartiez to cart!');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <button onclick="addToCart({id:'smartiez',name:'Smartiez',price:50,image:'icons/SUMO.png'});alert('Added Smartiez');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
               Add to Cart
             </button>
-            <a
-              href="product.html?product=smartiez"
-              onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <a href="product.html?product=smartiez" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
               View Details
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Strawnana Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <img src="icons/Strawnana.png" alt="Strawnana 5G Hybrid Disposable" class="w-full h-48 object-cover" />
+      <!-- Strawnana -->
+      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
+        <img src="icons/Strawnana.png" alt="Strawnana" class="w-full h-48 object-cover"/>
         <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
-            Strawnana | 5G Hybrid Disposable
-          </h3>
+          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">Strawnana | 5G Hybrid</h3>
           <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Savor the sweet and fruity flavor of Strawnana, a balanced hybrid for your perfect escape.
+            Savor a balanced hybrid with sweet strawberry-banana notes.
           </p>
           <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
           <div class="mt-auto flex space-x-2">
-            <button
-              onclick="addToCart({id:'strawnana',name:'Strawnana | 5G Hybrid Disposable',price:50,image:'icons/Strawnana.png'});alert('Added Strawnana to cart!');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <button onclick="addToCart({id:'strawnana',name:'Strawnana',price:50,image:'icons/Strawnana.png'});alert('Added Strawnana');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
               Add to Cart
             </button>
-            <a
-              href="product.html?product=strawnana"
-              onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <a href="product.html?product=strawnana" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
               View Details
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Celestial Blueberry Card -->
-      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <img src="icons/CELESTIALBLUEBERRY.png" alt="CELESTIAL BLUEBERRY BRUST 500mg – 20pcs" class="w-full h-48 object-cover" />
+      <!-- Celestial Blueberry Gummies -->
+      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
+        <img src="icons/CELESTIALBLUEBERRY.png" alt="Celestial Blueberry Gummies" class="w-full h-48 object-cover"/>
         <div class="p-6 flex-grow flex flex-col">
           <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
-            RED TRIANGLE BLACK EDITION<br />CELESTIAL BLUEBERRY BRUST<br />500mg – 20pcs
+            RED TRIANGLE BLACK EDITION<br/>CELESTIAL BLUEBERRY BRUST<br/>500mg – 20pcs
           </h3>
           <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Indulge in the cosmic sweetness of Celestial Blueberry – handcrafted gummies delivering 500mg of pure bliss.
+            Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.
           </p>
-          <p class="text-xl text-green-400 font-bold mb-4">
-            $7.00 each&nbsp;|&nbsp;$60.00 per bottle
-          </p>
+          <p class="text-xl text-green-400 font-bold mb-4">$7 each | $60 per bottle</p>
           <div class="mt-auto flex space-x-2">
-            <button
-              onclick="addToCart({id:'celestial_blueberry',name:'CELESTIAL BLUEBERRY BRUST 500mg',price:7,image:'icons/CELESTIALBLUEBERRY.png'});alert('Added Celestial Blueberry to cart!');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <button onclick="addToCart({id:'celestial_blueberry',name:'Celestial Blueberry Gummies',price:7,image:'icons/CELESTIALBLUEBERRY.png'});alert('Added Gummies');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
               Add to Cart
             </button>
-            <a
-              href="product.html?product=celestial_blueberry"
-              onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg uppercase font-bold">
+            <a href="product.html?product=celestial_blueberry" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bangin' Watermelon Vape Kit -->
+      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
+        <img src="icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png" alt="Off Stamp X-Cube Bangin' Watermelon Kit" class="w-full h-48 object-cover"/>
+        <div class="p-6 flex-grow flex flex-col">
+          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
+            Bangin' Watermelon<br/>Off Stamp X-Cube Kit
+          </h3>
+          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
+            25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.
+          </p>
+          <p class="text-xl text-green-400 font-bold mb-4">$26.00</p>
+          <div class="mt-auto flex space-x-2">
+            <button onclick="addToCart({id:'offstamp_watermelon',name:'Bangin Watermelon Vape Kit',price:26,image:'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'});alert('Added Vape Kit');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
+              Add to Cart
+            </button>
+            <a href="product.html?product=offstamp_watermelon" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
               View Details
             </a>
           </div>
@@ -147,7 +156,7 @@
     window.addEventListener('load', () => {
       const pos = sessionStorage.getItem('shopScrollPos');
       if (pos) {
-        window.scrollTo(0, parseInt(pos));
+        window.scrollTo(0, +pos);
         sessionStorage.removeItem('shopScrollPos');
       }
     });
