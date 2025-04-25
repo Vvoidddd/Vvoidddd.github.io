@@ -4,10 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product Details | Brains, Brawn & Bong</title>
-  <meta name="description" content="Detailed view of the product with images, description, and purchase options." />
+  <meta name="description" content="Detailed view of the product with images, description & purchase options." />
+
+  <!-- Open Graph / Discord embeds -->
   <meta property="og:title" content="" id="og-title">
-  <meta property="og:description" content="" id="og-description">
-  <meta property="og:image" content="" id="og-image">
+  <meta property="og:description" content="" id="og-desc">
+  <meta property="og:image" content="" id="og-img">
+  <meta property="og:type" content="product" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="" id="tw-title">
+  <meta name="twitter:description" content="" id="tw-desc">
+  <meta name="twitter:image" content="" id="tw-img">
 
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +27,6 @@
       font-family: 'Xanmono-Italic';
       src: url('fonts/Xanmono-Italic.ttf') format('truetype');
       font-style: italic;
-      font-weight: normal;
     }
   </style>
 </head>
@@ -43,7 +51,7 @@
     </div>
   </header>
 
-  <!-- Main Product Section -->
+  <!-- Product -->
   <main class="flex-grow container mx-auto p-6 max-w-3xl">
     <button id="back-button" class="mb-6 flex items-center gap-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
       <i class="fas fa-arrow-left"></i> Back to Shop
@@ -55,7 +63,7 @@
 
       <!-- Image -->
       <div class="relative mb-6">
-        <img id="product-image" src="" alt="" class="w-full h-auto rounded-lg" />
+        <img id="product-image" class="w-full h-auto rounded-lg" alt=""/>
       </div>
 
       <p id="product-price" class="text-3xl font-semibold text-green-400 mb-8"></p>
@@ -63,12 +71,10 @@
         Add to Cart
       </button>
 
-      <!-- Features -->
       <ul id="product-features" class="space-y-3 text-left"></ul>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
     <div class="container mx-auto text-center text-gray-400">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
@@ -83,8 +89,8 @@
         mainDesc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
         features: [
           'Premium rosin blend delivering a clean and potent experience.',
-          'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
-          '5g disposable design for on-the-go enjoyment.'
+          'Infused with THC-P, THC-H, and THC-A.',
+          '5g disposable design for on-the-go use.'
         ],
         images: ['icons/SUMO.png','icons/SUMO2.png']
       },
@@ -94,50 +100,88 @@
         mainDesc: 'Savor the sweet and fruity flavor of Strawnana, a balanced hybrid for your perfect escape.',
         features: [
           'Premium rosin blend delivering a clean and potent experience.',
-          'Infused with THC-P, THC-H, and THC-A for a full-spectrum effect.',
-          '5g disposable design for on-the-go enjoyment.'
+          'Infused with THC-P, THC-H, and THC-A.',
+          '5g disposable design for on-the-go use.'
         ],
         images: ['icons/Strawnana.png','icons/Strawnana2.png']
       },
       celestial_blueberry: {
-        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
+        name: 'CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
         price: 7.00,
         mainDesc: 'Indulge in the cosmic sweetness of Celestial Blueberry – handcrafted gummies delivering 500mg of pure bliss.',
         features: [
-          'Made with real fruit extracts for an authentic taste.',
-          '500mg of pure THC, with 20 pieces per pack.',
-          'Available in bottles for extended relaxation.'
+          '500mg total dose, 20 pieces per bottle.',
+          'Real fruit extracts for authentic taste.',
+          'Perfect on-the-go edible.'
         ],
         images: ['icons/CELESTIALBLUEBERRY.png','icons/CELESTIALBLUEBERRY2.png']
+      },
+      offstamp_watermelon: {
+        name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
+        price: 26.00,
+        mainDesc: '25,000+ puffs of juicy watermelon in a dual-mesh disposable pod with smart rechargeable battery & real-time TFT screen.',
+        features: [
+          '18ml e-liquid pod (50mg nicotine).',
+          'Dual mesh coil & 2-level airflow.',
+          'Rechargeable 100mAh pod + 1100mAh smart battery.',
+          'USB-C fast charge & 3 power modes.',
+          '2.25” TFT screen for e-liquid & battery monitoring.'
+        ],
+        images: [
+          'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png',
+          'icons/OF94A6_1.png'
+        ]
       }
     };
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('product') || 'smartiez';
-    const product = products[productId];
+    // get product key
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('product') || 'smartiez';
+    if (!products[key]) {
+      return window.location.href = 'shop.html';
+    }
+    const prod = products[key];
 
-    document.getElementById('product-name').innerText = product.name;
-    document.getElementById('product-main-desc').innerText = product.mainDesc;
-    document.getElementById('product-price').innerText = `$${product.price.toFixed(2)}`;
-    document.getElementById('product-image').src = product.images[0];
-    
-    const featuresList = document.getElementById('product-features');
-    product.features.forEach(feature => {
+    // Populate text
+    document.getElementById('product-name').textContent = prod.name;
+    document.getElementById('product-main-desc').textContent = prod.mainDesc;
+    document.getElementById('product-price').textContent = `$${prod.price.toFixed(2)}`;
+    document.getElementById('product-image').src = prod.images[0];
+    document.getElementById('product-image').alt = prod.name;
+
+    // Populate features
+    const featEl = document.getElementById('product-features');
+    prod.features.forEach(f => {
       const li = document.createElement('li');
-      li.textContent = feature;
-      featuresList.appendChild(li);
+      li.className = 'flex items-start';
+      li.innerHTML = `<i class="fas fa-check text-green-400 mt-1 mr-3"></i><span>${f}</span>`;
+      featEl.appendChild(li);
     });
 
-    const cartBtn = document.getElementById('add-to-cart-btn');
-    cartBtn.addEventListener('click', () => {
-      addToCart({id:productId,name:product.name,price:product.price,image:product.images[0]});
-      alert('Added to cart!');
-    });
+    // Update OG + Twitter meta
+    document.getElementById('og-title').content       = prod.name;
+    document.getElementById('og-desc').content        = prod.mainDesc;
+    document.getElementById('og-img').content         = prod.images[0];
+    document.getElementById('tw-title').content       = prod.name;
+    document.getElementById('tw-desc').content        = prod.mainDesc;
+    document.getElementById('tw-img').content         = prod.images[0];
 
-    const backBtn = document.getElementById('back-button');
-    backBtn.addEventListener('click', () => {
-      window.history.back();
-    });
+    // Add to cart
+    document.getElementById('add-to-cart-btn').onclick = () => {
+      addToCart({
+        id: key,
+        name: prod.name,
+        price: prod.price,
+        image: prod.images[0]
+      });
+      alert(`Added ${prod.name} to cart!`);
+    };
+
+    // Back to shop
+    document.getElementById('back-button').onclick = () => {
+      sessionStorage.setItem('shopScrollPos', window.scrollY);
+      window.location.href = 'shop.html';
+    };
   </script>
 </body>
 </html>
