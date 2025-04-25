@@ -30,8 +30,17 @@
   <!-- Styles & Scripts -->
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <!-- Custom Font -->
+  <style>
+    @font-face {
+      font-family: 'Makisupa';
+      src: url('fonts/MAKISUPA.TTF') format('truetype');
+    }
+    body {
+      font-family: 'Makisupa', sans-serif;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
   <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
@@ -66,12 +75,14 @@
 
       <!-- Cart Items Summary -->
       <div class="space-y-4">
+        <!-- Sample Cart Item 1 -->
         <div class="flex justify-between items-center py-2 border-b border-gray-700">
-          <span>Item Name</span>
+          <span>Smartiez Gummies</span>
           <span>$40.00</span>
         </div>
+        <!-- Sample Cart Item 2 -->
         <div class="flex justify-between items-center py-2 border-b border-gray-700">
-          <span>Item Name</span>
+          <span>Bangin' Watermelon Vape</span>
           <span>$80.00</span>
         </div>
       </div>

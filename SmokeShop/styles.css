@@ -1,14 +1,13 @@
-/* General Styles */
 @font-face {
-  font-family: "Dimitri";
-  src: url("Fonts/DIMITRI_.TTF") format("truetype");
+  font-family: "MAKISUPA";
+  src: url("Fonts/MAKISUPA.TTF") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: "Dimitri", serif;
-  background-color: #1a202c; /* Dark background */
+  font-family: "MAKISUPA", serif;
+  background-color: #1a202c;
   color: white;
   margin: 0;
   padding: 0;
@@ -16,7 +15,7 @@ body {
 
 /* Site Name */
 .site-name {
-  font-family: "Dimitri", serif;
+  font-family: "MAKISUPA", serif;
   color: #10B981;
 }
 

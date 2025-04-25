@@ -1,5 +1,3 @@
-// Cart management script
-
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartCount = document.getElementById('cart-count');

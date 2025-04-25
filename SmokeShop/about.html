@@ -4,19 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Brains, Brawn & Bong</title>
-  <meta name="description" content="Learn about the trio behind Brains, Brawn & Bong, their mission, and their story." />
+  <meta name="description" content="Learn about the trio behind Brains, Brawn & Bong, their mission, and how to order." />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Link to custom font -->
+  <style>
+    @font-face {
+      font-family: 'Makisupa';
+      src: url('fonts/MAKISUPA.TTF') format('truetype');
+    }
+    body {
+      font-family: 'Makisupa', sans-serif;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-  <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
-    <img src="icons/image_2025-04-23_213742023-removebg-preview.png" alt="Transition Image" class="max-w-full max-h-full" />
-  </div>
+
+  <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="site-name text-3xl md:text-4xl font-extrabold tracking-wide">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-4 text-base md:text-lg uppercase">
+        <ul class="flex space-x-4 uppercase text-lg">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
@@ -26,15 +36,29 @@
     </div>
   </header>
 
-  <main class="flex-grow container mx-auto p-4">
-    <h2 class="text-3xl md:text-4xl mb-4">About Us</h2>
-    <p class="mb-6 text-gray-400">
-      Brains, Brawn & Bong is a trio-owned smoke shop dedicated to providing quality edibles and a unique vibe.
+  <!-- About Content -->
+  <main class="flex-grow container mx-auto p-6">
+    <h2 class="text-3xl md:text-4xl mb-4 font-bold">About Us</h2>
+
+    <p class="mb-4 text-gray-400">
+      We’re three friends—Brains, Brawn, and Bong—who wanted to launch an affordable, reliable delivery service for top-shelf disposables, edibles, and vapes. We keep overhead low and pass the savings on to you.
+    </p>
+
+    <h3 class="text-2xl mb-2 font-semibold">How to Order</h3>
+    <p class="text-gray-400 mb-6">
+      Just text us at <a href="tel:+16892087849" class="text-green-400 font-bold">‪(689) 208-7849‬</a> with:
+      <ul class="list-disc list-inside ml-4 text-gray-300">
+        <li>The <strong>product name</strong> (e.g. “Smartiez”).</li>
+        <li>Your <strong>preferred delivery time</strong>.</li>
+        <li>Your <strong>address</strong> or meeting spot.</li>
+      </ul>
+      We’ll confirm availability and ETA right away!
     </p>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-sm text-gray-400">
+    <div class="container mx-auto text-center text-gray-400">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>

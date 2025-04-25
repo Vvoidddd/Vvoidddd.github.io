@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-
   <style>
-    /* Xanmono-Italic for titles/descriptions */
     @font-face {
       font-family: 'Xanmono-Italic';
       src: url('fonts/Xanmono-Italic.ttf') format('truetype');
@@ -49,98 +47,8 @@
       <p class="text-gray-400 mt-2">Premium on-the-go products to elevate your chill.</p>
     </section>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Smartiez -->
-      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
-        <img src="icons/SUMO.png" alt="Smartiez" class="w-full h-48 object-cover"/>
-        <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">Smartiez | 5G Indica</h3>
-          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Relax with the sweet and fruity cannabis indica blend.
-          </p>
-          <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
-          <div class="mt-auto flex space-x-2">
-            <button onclick="addToCart({id:'smartiez',name:'Smartiez',price:50,image:'icons/SUMO.png'});alert('Added Smartiez');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
-              Add to Cart
-            </button>
-            <a href="product.html?product=smartiez" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Strawnana -->
-      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
-        <img src="icons/Strawnana.png" alt="Strawnana" class="w-full h-48 object-cover"/>
-        <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">Strawnana | 5G Hybrid</h3>
-          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Savor a balanced hybrid with sweet strawberry-banana notes.
-          </p>
-          <p class="text-xl text-green-400 font-bold mb-4">$50.00</p>
-          <div class="mt-auto flex space-x-2">
-            <button onclick="addToCart({id:'strawnana',name:'Strawnana',price:50,image:'icons/Strawnana.png'});alert('Added Strawnana');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
-              Add to Cart
-            </button>
-            <a href="product.html?product=strawnana" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Celestial Blueberry Gummies -->
-      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
-        <img src="icons/CELESTIALBLUEBERRY.png" alt="Celestial Blueberry Gummies" class="w-full h-48 object-cover"/>
-        <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
-            RED TRIANGLE BLACK EDITION<br/>CELESTIAL BLUEBERRY BRUST<br/>500mg – 20pcs
-          </h3>
-          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.
-          </p>
-          <p class="text-xl text-green-400 font-bold mb-4">$7 each | $60 per bottle</p>
-          <div class="mt-auto flex space-x-2">
-            <button onclick="addToCart({id:'celestial_blueberry',name:'Celestial Blueberry Gummies',price:7,image:'icons/CELESTIALBLUEBERRY.png'});alert('Added Gummies');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
-              Add to Cart
-            </button>
-            <a href="product.html?product=celestial_blueberry" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bangin' Watermelon Vape Kit -->
-      <div class="bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden">
-        <img src="icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png" alt="Off Stamp X-Cube Bangin' Watermelon Kit" class="w-full h-48 object-cover"/>
-        <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">
-            Bangin' Watermelon<br/>Off Stamp X-Cube Kit
-          </h3>
-          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">
-            25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.
-          </p>
-          <p class="text-xl text-green-400 font-bold mb-4">$26.00</p>
-          <div class="mt-auto flex space-x-2">
-            <button onclick="addToCart({id:'offstamp_watermelon',name:'Bangin Watermelon Vape Kit',price:26,image:'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'});alert('Added Vape Kit');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
-              Add to Cart
-            </button>
-            <a href="product.html?product=offstamp_watermelon" onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-              View Details
-            </a>
-          </div>
-        </div>
-      </div>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+      <!-- JS will populate cards here -->
     </section>
   </main>
 
@@ -151,8 +59,70 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
+    // Product definitions
+    const products = {
+      smartiez: {
+        id: 'smartiez',
+        name: 'Smartiez | 5G Indica Disposable',
+        price: 50.00,
+        desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
+        img: 'icons/SUMO.png'
+      },
+      strawnana: {
+        id: 'strawnana',
+        name: 'Strawnana | 5G Hybrid Disposable',
+        price: 50.00,
+        desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
+        img: 'icons/Strawnana.png'
+      },
+      celestial_blueberry: {
+        id: 'celestial_blueberry',
+        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
+        price: 7.00,
+        desc: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
+        img: 'icons/CELESTIALBLUEBERRY.png',
+        metaPrice: '$7 each | $60 per bottle'
+      },
+      offstamp_watermelon: {
+        id: 'offstamp_watermelon',
+        name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
+        price: 26.00,
+        desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
+        img: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'
+      }
+    };
+
+    const grid = document.getElementById('product-grid');
+    Object.values(products).forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden';
+
+      card.innerHTML = `
+        <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover"/>
+        <div class="p-6 flex-grow flex flex-col">
+          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">${p.name}</h3>
+          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">${p.desc}</p>
+          <p class="text-xl text-green-400 font-bold mb-4">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
+          <div class="mt-auto flex space-x-2">
+            <button
+              onclick="addToCart({ id:'${p.id}', name:'${p.name}', price:${p.price}, image:'${p.img}' });alert('Added ${p.name} to cart!');"
+              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
+              Add to Cart
+            </button>
+            <a
+              href="product.html?product=${p.id}"
+              onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
+              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
+              View Details
+            </a>
+          </div>
+        </div>`;
+
+      grid.appendChild(card);
+    });
+
+    // Restore scroll
     window.addEventListener('load', () => {
       const pos = sessionStorage.getItem('shopScrollPos');
       if (pos) {

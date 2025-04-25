@@ -3,34 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed view of the product with images, description & purchase options." />
-
-  <!-- Open Graph / Discord embeds -->
-  <meta property="og:title" content="" id="og-title">
-  <meta property="og:description" content="" id="og-desc">
-  <meta property="og:image" content="" id="og-img">
-  <meta property="og:type" content="product" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="" id="tw-title">
-  <meta name="twitter:description" content="" id="tw-desc">
-  <meta name="twitter:image" content="" id="tw-img">
-
-  <link rel="stylesheet" href="styles.css" />
+  <title>Product Details | Brains, Brawn & Bong</title>
+  
+  <!-- Link to Tailwind CSS for styling -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
-  <style>
-    @font-face {
-      font-family: 'Xanmono-Italic';
-      src: url('fonts/Xanmono-Italic.ttf') format('truetype');
-      font-style: italic;
-    }
-  </style>
+  <!-- FontAwesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS file -->
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="bg-gray-900 text-white flex flex-col min-h-screen">
 
   <!-- Header -->
   <header class="bg-gray-800 p-4">
@@ -51,137 +35,106 @@
     </div>
   </header>
 
-  <!-- Product -->
+  <!-- Main Content Section -->
   <main class="flex-grow container mx-auto p-6 max-w-3xl">
-    <button id="back-button" class="mb-6 flex items-center gap-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
+    <!-- Back to Shop Button -->
+    <button id="back-button" class="flex items-center mb-6 gap-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg">
       <i class="fas fa-arrow-left"></i> Back to Shop
     </button>
 
     <section class="text-center">
-      <h2 id="product-name" class="text-4xl font-extrabold mb-4" style="font-family:'Xanmono-Italic';"></h2>
-      <p id="product-main-desc" class="text-gray-400 mb-6 text-lg" style="font-family:'Xanmono-Italic';"></p>
+      <!-- Product Title -->
+      <h2 id="product-name" class="text-4xl font-extrabold mb-4"></h2>
+      <!-- Product Description -->
+      <p id="product-main-desc" class="text-gray-400 mb-6 text-lg"></p>
 
-      <!-- Image -->
+      <!-- Product Image -->
       <div class="relative mb-6">
-        <img id="product-image" class="w-full h-auto rounded-lg" alt=""/>
+        <img id="product-image" class="w-full rounded-lg mx-auto" alt="Product Image" />
       </div>
 
-      <p id="product-price" class="text-3xl font-semibold text-green-400 mb-8"></p>
-      <button id="add-to-cart-btn" class="bg-green-500 hover:bg-green-600 w-full py-4 rounded-lg font-bold uppercase mb-8">
-        Add to Cart
-      </button>
+      <!-- Product Price -->
+      <div id="product-price" class="text-3xl font-bold mb-4"></div>
 
-      <ul id="product-features" class="space-y-3 text-left"></ul>
+      <!-- Add to Cart Button -->
+      <div class="mb-6">
+        <button id="add-to-cart" class="bg-green-500 hover:bg-green-600 py-2 px-4 rounded-full w-full text-lg">
+          Add to Cart
+        </button>
+      </div>
     </section>
   </main>
 
-  <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-gray-400">
-      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
-    </div>
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-4 text-center">
+    <p>&copy; 2025 Brains, Brawn & Bong. All rights reserved.</p>
   </footer>
 
   <script>
+    // Product definitions (same as in shop.html)
     const products = {
       smartiez: {
+        id: 'smartiez',
         name: 'Smartiez | 5G Indica Disposable',
         price: 50.00,
-        mainDesc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
-        features: [
-          'Premium rosin blend delivering a clean and potent experience.',
-          'Infused with THC-P, THC-H, and THC-A.',
-          '5g disposable design for on-the-go use.'
-        ],
-        images: ['icons/SUMO.png','icons/SUMO2.png']
+        desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
+        img: 'icons/SUMO.png'
       },
       strawnana: {
+        id: 'strawnana',
         name: 'Strawnana | 5G Hybrid Disposable',
         price: 50.00,
-        mainDesc: 'Savor the sweet and fruity flavor of Strawnana, a balanced hybrid for your perfect escape.',
-        features: [
-          'Premium rosin blend delivering a clean and potent experience.',
-          'Infused with THC-P, THC-H, and THC-A.',
-          '5g disposable design for on-the-go use.'
-        ],
-        images: ['icons/Strawnana.png','icons/Strawnana2.png']
+        desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
+        img: 'icons/Strawnana.png'
       },
       celestial_blueberry: {
-        name: 'CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
+        id: 'celestial_blueberry',
+        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
         price: 7.00,
-        mainDesc: 'Indulge in the cosmic sweetness of Celestial Blueberry – handcrafted gummies delivering 500mg of pure bliss.',
-        features: [
-          '500mg total dose, 20 pieces per bottle.',
-          'Real fruit extracts for authentic taste.',
-          'Perfect on-the-go edible.'
-        ],
-        images: ['icons/CELESTIALBLUEBERRY.png','icons/CELESTIALBLUEBERRY2.png']
+        desc: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
+        img: 'icons/CELESTIALBLUEBERRY.png',
+        metaPrice: '$7 each | $60 per bottle'
       },
       offstamp_watermelon: {
+        id: 'offstamp_watermelon',
         name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
         price: 26.00,
-        mainDesc: '25,000+ puffs of juicy watermelon in a dual-mesh disposable pod with smart rechargeable battery & real-time TFT screen.',
-        features: [
-          '18ml e-liquid pod (50mg nicotine).',
-          'Dual mesh coil & 2-level airflow.',
-          'Rechargeable 100mAh pod + 1100mAh smart battery.',
-          'USB-C fast charge & 3 power modes.',
-          '2.25” TFT screen for e-liquid & battery monitoring.'
-        ],
-        images: [
-          'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png',
-          'icons/OF94A6_1.png'
-        ]
+        desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
+        img: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'
       }
     };
 
-    // get product key
-    const params = new URLSearchParams(window.location.search);
-    const key = params.get('product') || 'smartiez';
-    if (!products[key]) {
-      return window.location.href = 'shop.html';
+    // Get the product ID from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('product');
+
+    if (productId && products[productId]) {
+      const product = products[productId];
+
+      // Dynamically set product details in HTML
+      document.getElementById('product-name').textContent = product.name;
+      document.getElementById('product-main-desc').textContent = product.desc;
+      document.getElementById('product-image').src = product.img;
+      document.getElementById('product-price').textContent = product.metaPrice ?? "$" + product.price.toFixed(2);
+    } else {
+      document.getElementById('product-name').textContent = "Product not found";
+      document.getElementById('product-main-desc').textContent = "Sorry, we couldn't find the product you're looking for.";
+      document.getElementById('product-image').style.display = "none";
+      document.getElementById('product-price').style.display = "none";
     }
-    const prod = products[key];
 
-    // Populate text
-    document.getElementById('product-name').textContent = prod.name;
-    document.getElementById('product-main-desc').textContent = prod.mainDesc;
-    document.getElementById('product-price').textContent = `$${prod.price.toFixed(2)}`;
-    document.getElementById('product-image').src = prod.images[0];
-    document.getElementById('product-image').alt = prod.name;
-
-    // Populate features
-    const featEl = document.getElementById('product-features');
-    prod.features.forEach(f => {
-      const li = document.createElement('li');
-      li.className = 'flex items-start';
-      li.innerHTML = `<i class="fas fa-check text-green-400 mt-1 mr-3"></i><span>${f}</span>`;
-      featEl.appendChild(li);
+    // Redirect back to the shop when the back button is clicked
+    document.getElementById('back-button').addEventListener('click', () => {
+      window.location.href = 'shop.html';
     });
 
-    // Update OG + Twitter meta
-    document.getElementById('og-title').content       = prod.name;
-    document.getElementById('og-desc').content        = prod.mainDesc;
-    document.getElementById('og-img').content         = prod.images[0];
-    document.getElementById('tw-title').content       = prod.name;
-    document.getElementById('tw-desc').content        = prod.mainDesc;
-    document.getElementById('tw-img').content         = prod.images[0];
-
-    // Add to cart
-    document.getElementById('add-to-cart-btn').onclick = () => {
-      addToCart({
-        id: key,
-        name: prod.name,
-        price: prod.price,
-        image: prod.images[0]
-      });
-      alert(`Added ${prod.name} to cart!`);
-    };
-
-    // Back to shop
-    document.getElementById('back-button').onclick = () => {
-      sessionStorage.setItem('shopScrollPos', window.scrollY);
-      window.location.href = 'shop.html';
-    };
+    // Dummy function to simulate adding to cart (You can enhance this with actual cart logic)
+    function addToCart(item) {
+      console.log("Item added to cart:", item);
+      // You can implement cart logic here, like updating cart count, storing in localStorage, etc.
+      alert(`${item.name} added to cart!`);
+    }
   </script>
+
 </body>
 </html>
