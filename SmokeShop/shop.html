@@ -16,10 +16,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
+    /* Load your MAKISUPA font */
     @font-face {
-      font-family: 'Xanmono-Italic';
-      src: url('fonts/Xanmono-Italic.ttf') format('truetype');
-      font-style: italic;
+      font-family: 'MAKISUPA';
+      src: url('fonts/MAKISUPA.ttf') format('truetype');
+      font-style: normal;
+    }
+
+    /* Apply MAKISUPA globally */
+    * {
+      font-family: 'MAKISUPA', serif !important;
     }
   </style>
 </head>
@@ -34,6 +40,7 @@
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400 font-bold">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
+          <li><a href="howto.html" class="hover:text-green-400">How To Buy</a></li>
           <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
@@ -45,6 +52,15 @@
     <section class="text-center mb-8">
       <h2 class="text-4xl font-extrabold">Shop Our 5G Disposables, Gummies & Vapes</h2>
       <p class="text-gray-400 mt-2">Premium on-the-go products to elevate your chill.</p>
+      <div class="mt-6">
+        <button
+          onclick="window.location.href='howto.html'"
+          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
+          aria-label="How To Buy"
+        >
+          How To Buy
+        </button>
+      </div>
     </section>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
@@ -101,8 +117,8 @@
       card.innerHTML = `
         <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover"/>
         <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2" style="font-family:'Xanmono-Italic';">${p.name}</h3>
-          <p class="text-gray-400 flex-grow mb-4" style="font-family:'Xanmono-Italic';">${p.desc}</p>
+          <h3 class="text-2xl mb-2">${p.name}</h3>
+          <p class="text-gray-400 flex-grow mb-4">${p.desc}</p>
           <p class="text-xl text-green-400 font-bold mb-4">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
           <div class="mt-auto flex space-x-2">
             <button

@@ -2,101 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Title and Description -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact | Brains, Brawn & Bong</title>
-  <meta name="description" content="Get in touch with the Brains, Brawn & Bong team. We love hearing from our fans and customers!" />
-
-  <!-- Open Graph Metadata -->
+  <meta name="description" content="Get in touch with the Brains, Brawn & Bong team. Join our Discord community!" />
   <meta property="og:title" content="Contact | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Have questions? Reach out to the Brains, Brawn & Bong team—we love hearing from you!" />
-  <meta property="og:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
-  <meta property="og:url" content="https://vvoidddd.github.io/SmokeShop/contact.html" />
+  <meta property="og:description" content="Get in touch with the Brains, Brawn & Bong team. Join our Discord community!" />
+  <meta property="og:image" content="icons/SUMO.png" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card Metadata -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact | Brains, Brawn & Bong" />
-  <meta name="twitter:description" content="Have questions? Reach out to the team and we'll get back to you!" />
-  <meta name="twitter:image" content="https://storage.googleapis.com/a1aa/image/hJOEPmlE8ClUYsy5UoQN30muMsrlUwEv7Cu0c2kv-yw.jpg" />
-
-  <!-- Theme Color -->
   <meta name="theme-color" content="#10B981" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Styles & Scripts -->
+  <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Horizon&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    /* Load your MAKISUPA font properly */
+    @font-face {
+      font-family: 'MAKISUPA';
+      src: url('fonts/MAKISUPA.ttf') format('truetype');
+      font-style: normal;
+    }
+
+    /* Apply MAKISUPA globally */
+    * {
+      font-family: 'MAKISUPA', serif !important;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
-  <div id="page-transition-overlay" class="hidden fixed inset-0 bg-black flex items-center justify-center z-50">
-    <img src="icons/image_2025-04-23_213742023-removebg-preview.png" alt="Transition Image" class="max-w-full max-h-full" />
-  </div>
 
   <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl site-name">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-2 md:space-x-4 text-base md:text-lg">
+        <ul class="flex space-x-6 uppercase text-lg">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
-          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
+          <li><a href="howto.html" class="hover:text-green-400">How To Buy</a></li>
+          <li><a href="contact.html" class="hover:text-green-400 font-bold">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Contact Content -->
-  <main class="flex-grow container mx-auto p-4">
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto p-6">
     <section class="text-center mb-8">
-      <h2 class="text-3xl md:text-4xl mb-4">Contact Us</h2>
-      <p class="text-lg md:text-xl">We love hearing from you! Whether you have a question, feedback, or just want to say what's up, hit us up!</p>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
-      <h3 class="text-2xl mb-4">Send Us a Message</h3>
-      <form action="#" method="POST">
-        <div class="mb-4">
-          <label for="name" class="block">Full Name</label>
-          <input type="text" id="name" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
-        </div>
-
-        <div class="mb-4">
-          <label for="email" class="block">Email Address</label>
-          <input type="email" id="email" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
-        </div>
-
-        <div class="mb-4">
-          <label for="subject" class="block">Subject</label>
-          <input type="text" id="subject" class="w-full p-2 bg-gray-700 text-white rounded-lg" required />
-        </div>
-
-        <div class="mb-4">
-          <label for="message" class="block">Message</label>
-          <textarea id="message" class="w-full p-2 bg-gray-700 text-white rounded-lg" rows="4" required></textarea>
-        </div>
-
-        <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg w-full">Send Message</button>
-      </form>
+      <h2 class="text-4xl font-extrabold mb-4">Join Our Discord</h2>
+      <p class="text-gray-400 mb-6">Connect with us and the community on Discord!</p>
+      <div class="flex justify-center mb-6">
+        <iframe src="https://discord.com/widget?id=1344529865570914304&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+      <div class="mt-6">
+        <button
+          onclick="window.location.href='shop.html'"
+          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
+          aria-label="Enter the Shop"
+        >
+          Enter the Shop
+        </button>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center">
-      <p>© 2025 Brains, Brawn & Bong. All rights reserved.</p>
+    <div class="container mx-auto text-center text-gray-400">
+      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="fade.js"></script>
 </body>
 </html>

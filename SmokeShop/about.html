@@ -2,58 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About | Brains, Brawn & Bong</title>
   <meta name="description" content="Learn about the trio behind Brains, Brawn & Bong, their mission, and how to order." />
+  <meta property="og:title" content="About | Brains, Brawn & Bong" />
+  <meta property="og:description" content="Learn about the trio behind Brains, Brawn & Bong, their mission, and how to order." />
+  <meta property="og:image" content="icons/SUMO.png" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#10B981" />
+
+  <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Link to custom font -->
-  <style>
-    @font-face {
-      font-family: 'Makisupa';
-      src: url('fonts/MAKISUPA.TTF') format('truetype');
-    }
-    body {
-      font-family: 'Makisupa', sans-serif;
-    }
-  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col" style="font-family: 'MAKISUPA', serif !important;">
 
   <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="site-name text-3xl md:text-4xl font-extrabold tracking-wide">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold" style="font-family: 'MAKISUPA', serif !important;">Brains, Brawn & Bong</h1>
       <nav>
-        <ul class="flex space-x-4 uppercase text-lg">
-          <li><a href="index.html" class="hover:text-green-400">Home</a></li>
-          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
-          <li><a href="about.html" class="hover:text-green-400">About</a></li>
-          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
+        <ul class="flex space-x-6 uppercase text-lg">
+          <li><a href="index.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Home</a></li>
+          <li><a href="shop.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Shop</a></li>
+          <li><a href="about.html" class="hover:text-green-400 font-bold" style="font-family: 'MAKISUPA', serif !important;">About</a></li>
+          <li><a href="howto.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">How To Buy</a></li>
+          <li><a href="contact.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- About Content -->
+  <!-- Main Content -->
   <main class="flex-grow container mx-auto p-6">
-    <h2 class="text-3xl md:text-4xl mb-4 font-bold">About Us</h2>
-
-    <p class="mb-4 text-gray-400">
-      We’re three friends—Brains, Brawn, and Bong—who wanted to launch an affordable, reliable delivery service for top-shelf disposables, edibles, and vapes. We keep overhead low and pass the savings on to you.
-    </p>
-
-    <h3 class="text-2xl mb-2 font-semibold">How to Order</h3>
-    <p class="text-gray-400 mb-6">
-      Just text us at <a href="tel:+16892087849" class="text-green-400 font-bold">‪(689) 208-7849‬</a> with:
-      <ul class="list-disc list-inside ml-4 text-gray-300">
-        <li>The <strong>product name</strong> (e.g. “Smartiez”).</li>
-        <li>Your <strong>preferred delivery time</strong>.</li>
-        <li>Your <strong>address</strong> or meeting spot.</li>
-      </ul>
-      We’ll confirm availability and ETA right away!
-    </p>
+    <section class="text-center mb-8">
+      <h2 class="text-4xl font-extrabold mb-4">About Us</h2>
+      <p class="text-gray-400 mb-6">
+        Brains, Brawn, and Bong were three young adults who wanted to create an online delivery service for anything za and vapes with no questions asked.
+      </p>
+      <button
+        onclick="window.location.href='shop.html'"
+        class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
+        aria-label="Enter the shop"
+      >
+        Enter the Shop
+      </button>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -64,6 +59,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="fade.js"></script>
 </body>
 </html>
