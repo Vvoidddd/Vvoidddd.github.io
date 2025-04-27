@@ -16,7 +16,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
-    /* Use MAKISUPA font for site name and buttons */
     .site-name, button {
       font-family: "MAKISUPA", serif !important;
     }
@@ -27,14 +26,14 @@
   <!-- Header -->
   <header class="bg-gray-800 p-4">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold site-name" style="font-family: 'MAKISUPA', serif !important;">Brains, Brawn & Bong</h1>
+      <h1 class="text-3xl font-extrabold site-name">Brains, Brawn & Bong</h1>
       <nav>
         <ul class="flex space-x-6 uppercase text-lg">
-          <li><a href="index.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Home</a></li>
-          <li><a href="shop.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Shop</a></li>
-          <li><a href="about.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">About</a></li>
-          <li><a href="howto.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">How To Buy</a></li>
-          <li><a href="contact.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Contact</a></li>
+          <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+          <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
+          <li><a href="about.html" class="hover:text-green-400">About</a></li>
+          <li><a href="howto.html" class="hover:text-green-400">How To Buy</a></li>
+          <li><a href="contact.html" class="hover:text-green-400">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -43,9 +42,14 @@
   <!-- Main Content -->
   <main class="flex-grow container mx-auto p-6">
     <section class="text-center mb-8">
-      <h2 class="text-4xl font-extrabold mb-4" id="product-name">Product Name</h2>
-      <img id="product-image" src="icons/SUMO.png" alt="Product Image" class="mx-auto mb-6 rounded-lg max-w-xs" />
-      <p id="product-description" class="text-gray-400 mb-4">Product description goes here.</p>
+      <h2 id="product-name" class="text-4xl font-extrabold mb-4">Loading...</h2>
+      
+      <div class="relative max-w-xs mx-auto mb-6">
+        <img id="product-image" src="icons/SUMO.png" alt="Product Image" class="rounded-lg w-full" />
+        <div class="flex justify-center mt-4 space-x-2" id="thumbnail-container"></div>
+      </div>
+      
+      <p id="product-description" class="text-gray-400 mb-4">Loading description...</p>
       <p id="product-price" class="text-green-400 font-bold text-xl mb-6">$0.00</p>
       <button
         id="order-now-btn"
@@ -64,9 +68,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-    // Populate product details based on URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('product');
 
@@ -75,25 +77,25 @@
         name: 'Smartiez | 5G Indica Disposable',
         price: 50.00,
         desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
-        img: 'icons/SUMO.png'
+        images: ['icons/SUMO.png', 'icons/SUMO2.png']
       },
       strawnana: {
         name: 'Strawnana | 5G Hybrid Disposable',
         price: 50.00,
         desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
-        img: 'icons/Strawnana.png'
+        images: ['icons/Strawnana.png', 'icons/Strawnana2.png']
       },
       celestial_blueberry: {
         name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
         price: 7.00,
         desc: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
-        img: 'icons/CELESTIALBLUEBERRY.png'
+        images: ['icons/CELESTIALBLUEBERRY.png']
       },
       offstamp_watermelon: {
         name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
         price: 26.00,
         desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
-        img: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'
+        images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png', 'icons/OF94A6_1.png']
       }
     };
 
@@ -102,13 +104,25 @@
     if (product) {
       document.getElementById('product-name').textContent = product.name;
       document.getElementById('product-description').textContent = product.desc;
-      document.getElementById('product-price').textContent = '$' + product.price.toFixed(2);
-      document.getElementById('product-image').src = product.img;
+      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('product-image').src = product.images[0];
       document.getElementById('product-image').alt = product.name;
       document.getElementById('order-now-btn').disabled = false;
       document.getElementById('order-now-btn').onclick = () => {
-        alert(`To order ${product.name}, please contact us via the How To Buy page.`);
+        alert(`To order ${product.name}, please visit our How To Buy page.`);
       };
+
+      const thumbnailContainer = document.getElementById('thumbnail-container');
+      product.images.forEach((imgSrc, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = imgSrc;
+        thumb.alt = `Thumbnail ${index + 1}`;
+        thumb.className = 'w-16 h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-green-400';
+        thumb.onclick = () => {
+          document.getElementById('product-image').src = imgSrc;
+        };
+        thumbnailContainer.appendChild(thumb);
+      });
     } else {
       document.getElementById('product-name').textContent = 'Product Not Found';
       document.getElementById('product-description').textContent = '';
