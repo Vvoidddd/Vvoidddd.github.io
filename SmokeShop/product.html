@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed product information for Brains, Brawn & Bong." />
-  <meta property="og:title" content="Product Details | Brains, Brawn & Bong" />
-  <meta property="og:description" content="Detailed product information for Brains, Brawn & Bong." />
-  <meta property="og:image" content="icons/SUMO.png" />
+  
+  <!-- Dynamic Meta Tags -->
   <meta property="og:type" content="website" />
+  <meta id="og-url" property="og:url" content="https://vvoidddd.github.io/SmokeShop/product.html?product=" />
+  <meta id="og-title" property="og:title" content="Loading..." />
+  <meta id="og-description" property="og:description" content="Loading description..." />
+  <meta id="og-image" property="og:image" content="icons/SUMO.png" />
+  <meta id="og-image-alt" property="og:image:alt" content="Loading..." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="twitter-title" name="twitter:title" content="Loading..." />
+  <meta id="twitter-description" name="twitter:description" content="Loading description..." />
+  <meta id="twitter-image" name="twitter:image" content="icons/SUMO.png" />
+  
   <meta name="theme-color" content="#10B981" />
-
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -77,31 +85,52 @@
         name: 'Smartiez | 5G Indica Disposable',
         price: 50.00,
         desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
-        images: ['icons/SUMO.png', 'icons/SUMO2.png']
+        images: ['icons/SUMO.png', 'icons/SUMO2.png'],
+        og: {
+          title: 'Smartiez | 5G Indica Disposable',
+          description: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
+          image: 'icons/SUMO.png',
+        }
       },
       strawnana: {
         name: 'Strawnana | 5G Hybrid Disposable',
         price: 50.00,
         desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
-        images: ['icons/Strawnana.png', 'icons/Strawnana2.png']
+        images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
+        og: {
+          title: 'Strawnana | 5G Hybrid Disposable',
+          description: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
+          image: 'icons/Strawnana.png',
+        }
       },
       celestial_blueberry: {
         name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
         price: 7.00,
         desc: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
-        images: ['icons/CELESTIALBLUEBERRY.png']
+        images: ['icons/CELESTIALBLUEBERRY.png'],
+        og: {
+          title: 'Celestial Blueberry 500mg Gummies',
+          description: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
+          image: 'icons/CELESTIALBLUEBERRY.png',
+        }
       },
       offstamp_watermelon: {
         name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
         price: 26.00,
         desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
-        images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png', 'icons/OF94A6_1.png']
+        images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png', 'icons/OF94A6_1.png'],
+        og: {
+          title: 'Bangin\' Watermelon Off Stamp X-Cube Kit',
+          description: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
+          image: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png',
+        }
       }
     };
 
     const product = products[productId];
 
     if (product) {
+      // Update the page content
       document.getElementById('product-name').textContent = product.name;
       document.getElementById('product-description').textContent = product.desc;
       document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
@@ -112,6 +141,7 @@
         alert(`To order ${product.name}, please visit our How To Buy page.`);
       };
 
+      // Thumbnail gallery
       const thumbnailContainer = document.getElementById('thumbnail-container');
       product.images.forEach((imgSrc, index) => {
         const thumb = document.createElement('img');
@@ -123,6 +153,16 @@
         };
         thumbnailContainer.appendChild(thumb);
       });
+
+      // Update dynamic meta tags for social media sharing
+      document.getElementById('og-url').content = `https://vvoidddd.github.io/SmokeShop/product.html?product=${productId}`;
+      document.getElementById('og-title').content = product.og.title;
+      document.getElementById('og-description').content = product.og.description;
+      document.getElementById('og-image').content = product.og.image;
+      document.getElementById('og-image-alt').content = product.og.title;
+      document.getElementById('twitter-title').content = product.og.title;
+      document.getElementById('twitter-description').content = product.og.description;
+      document.getElementById('twitter-image').content = product.og.image;
     } else {
       document.getElementById('product-name').textContent = 'Product Not Found';
       document.getElementById('product-description').textContent = '';
