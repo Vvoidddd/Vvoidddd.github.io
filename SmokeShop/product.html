@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed product information for Brains, Brawn & Bong." />
-  
-  <!-- Dynamic Meta Tags -->
+
+  <!-- Meta Tags -->
   <meta property="og:type" content="website" />
   <meta id="og-url" property="og:url" content="https://vvoidddd.github.io/SmokeShop/product.html?product=" />
   <meta id="og-title" property="og:title" content="Loading..." />
@@ -17,7 +17,7 @@
   <meta id="twitter-title" name="twitter:title" content="Loading..." />
   <meta id="twitter-description" name="twitter:description" content="Loading description..." />
   <meta id="twitter-image" name="twitter:image" content="icons/SUMO.png" />
-  
+
   <meta name="theme-color" content="#10B981" />
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
@@ -52,7 +52,9 @@
     <section class="text-center mb-8">
       <h2 id="product-name" class="text-4xl font-extrabold mb-4">Loading...</h2>
       <p id="product-price" class="text-green-400 font-bold text-xl mb-6">$0.00</p>
-      <div id="product-images" class="flex justify-center space-x-4 mb-6"></div>
+      <div class="flex justify-center mb-6">
+        <img id="product-image" class="max-w-xs rounded-lg shadow-lg" alt="Product Image" />
+      </div>
       <p id="product-info" class="max-w-3xl mx-auto text-lg mb-6"></p>
       <div class="text-center">
         <a href="howto.html" id="how-to-buy-btn" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300">
@@ -101,25 +103,24 @@
     };
 
     const product = products[productId];
+    const imageEl = document.getElementById('product-image');
 
     if (product) {
-      // Update the page content with the product name, price, images, and info
       document.getElementById('product-name').textContent = product.name;
       document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
-      document.getElementById('product-info').textContent = product.info || '';
+      document.getElementById('product-info').textContent = product.info;
 
-      const productImagesContainer = document.getElementById('product-images');
-      productImagesContainer.innerHTML = ''; // Clear previous images
+      imageEl.src = product.images[0];
+      imageEl.alt = product.name;
 
-      product.images.forEach((imgSrc) => {
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        img.alt = product.name;
-        img.className = 'max-w-xs rounded-lg shadow-lg';
-        productImagesContainer.appendChild(img);
-      });
+      if (product.images.length > 1) {
+        let currentIndex = 0;
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % product.images.length;
+          imageEl.src = product.images[currentIndex];
+        }, 3000);
+      }
 
-      // Update meta tags dynamically using the first image
       const firstImage = product.images[0];
       document.getElementById('og-url').content = window.location.href;
       document.getElementById('og-title').content = product.name;
@@ -133,8 +134,7 @@
       document.getElementById('product-name').textContent = 'Product Not Found';
       document.getElementById('product-price').textContent = '';
       document.getElementById('product-info').textContent = '';
-      const productImagesContainer = document.getElementById('product-images');
-      productImagesContainer.innerHTML = '';
+      imageEl.style.display = 'none';
     }
   </script>
 </body>
