@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shop | Brains, Brawn & Bong</title>
   <meta name="description" content="Explore our high-quality disposables, gummies & vapes, handpicked to elevate your chill." />
   <meta property="og:title" content="Shop | Brains, Brawn & Bong" />
@@ -20,7 +20,6 @@
     @font-face {
       font-family: 'MAKISUPA';
       src: url('fonts/MAKISUPA.ttf') format('truetype');
-      font-style: normal;
     }
     * {
       font-family: 'MAKISUPA', serif !important;
@@ -31,10 +30,10 @@
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
   <!-- Header -->
   <header class="bg-gray-800 p-4 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
-      <nav>
-        <ul class="flex space-x-6 uppercase text-lg">
+    <div class="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+      <h1 class="text-3xl font-extrabold text-center md:text-left">Brains, Brawn & Bong</h1>
+      <nav class="w-full md:w-auto">
+        <ul class="flex flex-wrap justify-center md:justify-end space-x-4 text-lg uppercase">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400 font-bold">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
@@ -46,26 +45,26 @@
   </header>
 
   <!-- Main -->
-  <main class="flex-grow container mx-auto p-6">
+  <main class="flex-grow container mx-auto px-4 py-6">
     <section class="text-center mb-12">
-      <h2 class="text-4xl font-extrabold mb-2">Shop Our 5G Disposables, Gummies & Vapes</h2>
-      <p class="text-gray-400">Premium on-the-go products to elevate your chill.</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Shop Our 5G Disposables, Gummies & Vapes</h2>
+      <p class="text-gray-400 text-base sm:text-lg">Premium on-the-go products to elevate your chill.</p>
       <div class="mt-6">
         <button
           onclick="window.location.href='howto.html'"
-          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition duration-200 shadow-lg"
+          class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition duration-200 shadow-lg"
         >
           How To Buy
         </button>
       </div>
     </section>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="product-grid"></section>
+    <section class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="product-grid"></section>
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-gray-400">
+    <div class="container mx-auto text-center text-gray-400 text-sm">
       &copy; 2025 Brains, Brawn & Bong. All rights reserved.
     </div>
   </footer>
@@ -107,17 +106,19 @@
 
     for (const p of products) {
       const card = document.createElement('div');
-      card.className = 'bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col';
+      card.className = 'bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col';
 
       card.innerHTML = `
-        <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover" />
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-2xl font-bold mb-2">${p.name}</h3>
-          <p class="text-gray-400 mb-4 flex-grow">${p.desc}</p>
-          <p class="text-green-400 text-xl font-semibold mb-6">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="${p.img}" alt="${p.name}" class="absolute top-0 left-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h3 class="text-xl font-bold mb-2">${p.name}</h3>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">${p.desc}</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
           <a href="product.html?product=${p.id}"
              onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-3 uppercase font-bold rounded-lg">
+             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
             View Details
           </a>
         </div>

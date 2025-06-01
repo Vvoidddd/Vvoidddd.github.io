@@ -2,41 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Brains, Brawn & Bong</title>
   <meta name="description" content="Get in touch with the Brains, Brawn & Bong team. Join our Discord community!" />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact | Brains, Brawn & Bong" />
   <meta property="og:description" content="Get in touch with the Brains, Brawn & Bong team. Join our Discord community!" />
   <meta property="og:image" content="icons/SUMO.png" />
-  <meta property="og:type" content="website" />
   <meta name="theme-color" content="#10B981" />
 
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
-    /* Load your MAKISUPA font properly */
-    @font-face {
-      font-family: 'MAKISUPA';
-      src: url('fonts/MAKISUPA.ttf') format('truetype');
-      font-style: normal;
-    }
-
-    /* Apply MAKISUPA globally */
-    * {
+    .site-name, button {
       font-family: 'MAKISUPA', serif !important;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="bg-gray-900 text-white min-h-screen flex flex-col" style="font-family: 'MAKISUPA', serif !important;">
 
   <!-- Header -->
-  <header class="bg-gray-800 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
-      <nav>
-        <ul class="flex space-x-6 uppercase text-lg">
+  <header class="bg-gray-800 px-4 py-4">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+      <h1 class="text-2xl sm:text-3xl font-extrabold site-name">Brains, Brawn & Bong</h1>
+      <nav class="w-full sm:w-auto">
+        <ul class="flex flex-wrap justify-center sm:justify-end gap-4 text-sm sm:text-lg uppercase">
           <li><a href="index.html" class="hover:text-green-400">Home</a></li>
           <li><a href="shop.html" class="hover:text-green-400">Shop</a></li>
           <li><a href="about.html" class="hover:text-green-400">About</a></li>
@@ -48,32 +40,32 @@
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow container mx-auto p-6">
-    <section class="text-center mb-8">
-      <h2 class="text-4xl font-extrabold mb-4">Join Our Discord</h2>
-      <p class="text-gray-400 mb-6">Connect with us and the community on Discord!</p>
-      <div class="flex justify-center mb-6">
-        <iframe src="https://discord.com/widget?id=1344529865570914304&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      </div>
-      <div class="mt-6">
-        <button
-          onclick="window.location.href='shop.html'"
-          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
-          aria-label="Enter the Shop"
-        >
-          Enter the Shop
-        </button>
-      </div>
-    </section>
+  <main class="flex-grow w-full max-w-4xl mx-auto px-4 py-10 text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Join Our Discord</h2>
+    <p class="text-gray-300 mb-6 text-base sm:text-lg">Connect with us and the community on Discord!</p>
+    <div class="flex justify-center mb-6">
+      <iframe
+        src="https://discord.com/widget?id=1344529865570914304&theme=dark"
+        width="350"
+        height="500"
+        allowtransparency="true"
+        frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+      ></iframe>
+    </div>
+    <button
+      onclick="location.href='shop.html'"
+      class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-200"
+      aria-label="Enter the Shop"
+    >
+      Enter the Shop
+    </button>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-gray-400">
-      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
-    </div>
+  <footer class="bg-gray-800 px-4 py-4 text-center text-gray-400 text-sm">
+    &copy; 2025 Brains, Brawn & Bong. All rights reserved.
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
