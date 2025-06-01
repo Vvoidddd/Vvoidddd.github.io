@@ -15,24 +15,22 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
   <style>
-    /* Load your MAKISUPA font */
     @font-face {
       font-family: 'MAKISUPA';
       src: url('fonts/MAKISUPA.ttf') format('truetype');
       font-style: normal;
     }
-
-    /* Apply MAKISUPA globally */
     * {
       font-family: 'MAKISUPA', serif !important;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
 
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
   <!-- Header -->
-  <header class="bg-gray-800 p-4">
+  <header class="bg-gray-800 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-3xl font-extrabold">Brains, Brawn & Bong</h1>
       <nav>
@@ -47,25 +45,22 @@
     </div>
   </header>
 
-  <!-- Main Shop Grid -->
+  <!-- Main -->
   <main class="flex-grow container mx-auto p-6">
-    <section class="text-center mb-8">
-      <h2 class="text-4xl font-extrabold">Shop Our 5G Disposables, Gummies & Vapes</h2>
-      <p class="text-gray-400 mt-2">Premium on-the-go products to elevate your chill.</p>
+    <section class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold mb-2">Shop Our 5G Disposables, Gummies & Vapes</h2>
+      <p class="text-gray-400">Premium on-the-go products to elevate your chill.</p>
       <div class="mt-6">
         <button
           onclick="window.location.href='howto.html'"
-          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
-          aria-label="How To Buy"
+          class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition duration-200 shadow-lg"
         >
           How To Buy
         </button>
       </div>
     </section>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
-      <!-- JS will populate cards here -->
-    </section>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10" id="product-grid"></section>
   </main>
 
   <!-- Footer -->
@@ -76,23 +71,22 @@
   </footer>
 
   <script>
-    // Product definitions
-    const products = {
-      smartiez: {
+    const products = [
+      {
         id: 'smartiez',
         name: 'Smartiez | 5G Indica Disposable',
         price: 50.00,
         desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
         img: 'icons/SUMO.png'
       },
-      strawnana: {
+      {
         id: 'strawnana',
         name: 'Strawnana | 5G Hybrid Disposable',
         price: 50.00,
         desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
         img: 'icons/Strawnana.png'
       },
-      celestial_blueberry: {
+      {
         id: 'celestial_blueberry',
         name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
         price: 7.00,
@@ -100,45 +94,38 @@
         img: 'icons/CELESTIALBLUEBERRY.png',
         metaPrice: '$7 each | $60 per bottle'
       },
-      offstamp_watermelon: {
+      {
         id: 'offstamp_watermelon',
         name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
         price: 26.00,
         desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
         img: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'
       }
-    };
+    ];
 
     const grid = document.getElementById('product-grid');
-    Object.values(products).forEach(p => {
+
+    for (const p of products) {
       const card = document.createElement('div');
-      card.className = 'bg-gray-800 rounded-lg shadow-lg flex flex-col overflow-hidden';
+      card.className = 'bg-gray-800 rounded-lg overflow-hidden shadow-lg flex flex-col';
 
       card.innerHTML = `
-        <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover"/>
-        <div class="p-6 flex-grow flex flex-col">
-          <h3 class="text-2xl mb-2">${p.name}</h3>
-          <p class="text-gray-400 flex-grow mb-4">${p.desc}</p>
-          <p class="text-xl text-green-400 font-bold mb-4">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
-          <div class="mt-auto flex space-x-2">
-            <button
-              onclick="addToCart({ id:'${p.id}', name:'${p.name}', price:${p.price}, image:'${p.img}' });alert('Added ${p.name} to cart!');"
-              class="flex-1 bg-green-500 hover:bg-green-600 px-4 py-2 uppercase font-bold rounded-lg">
-              Add to Cart
-            </button>
-            <a
-              href="product.html?product=${p.id}"
-              onclick="sessionStorage.setItem('shopScrollPos',window.scrollY)"
-              class="flex-1 text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-              View Details
-            </a>
-          </div>
-        </div>`;
+        <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover" />
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-2xl font-bold mb-2">${p.name}</h3>
+          <p class="text-gray-400 mb-4 flex-grow">${p.desc}</p>
+          <p class="text-green-400 text-xl font-semibold mb-6">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
+          <a href="product.html?product=${p.id}"
+             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
+             class="w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-3 uppercase font-bold rounded-lg">
+            View Details
+          </a>
+        </div>
+      `;
 
       grid.appendChild(card);
-    });
+    }
 
-    // Restore scroll
     window.addEventListener('load', () => {
       const pos = sessionStorage.getItem('shopScrollPos');
       if (pos) {
