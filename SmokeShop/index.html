@@ -1,61 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Brains, Brawn & Bong</title>
-  <meta name="description" content="Brains, Brawn & Bong – A trio-owned smoke shop. Funny, raw, and real." />
-  <meta property="og:title" content="Brains, Brawn & Bong – Smoke Shop" />
-  <meta property="og:description" content="Three heads. One mission. Hella high. Shop edibles, support the trio." />
-  <meta property="og:image" content="icons/SUMO.png" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#10B981" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brains, Brawn & Bong</title>
+<meta name="description" content="Brains, Brawn & Bong – A trio-owned smoke shop. Funny, raw, and real." />
+<meta property="og:title" content="Brains, Brawn & Bong – Smoke Shop" />
+<meta property="og:description" content="Three heads. One mission. Hella high. Shop edibles, support the trio." />
+<meta property="og:image" content="icons/SUMO.png" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#10B981" />
+<link rel="icon" href="favicon.ico" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    background: #000;
+    color: #f0f0f0;
+    font-family: 'MAKISUPA', serif, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    flex-direction: column;
+  }
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    display: block;
+  }
+
+  #start-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #10B981;
+    user-select: none;
+    transition: opacity 0.3s ease;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  #lander {
+    max-width: 640px;
+    width: 90vw;
+    padding: 3rem 2.5rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid #10B981;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  h1 span {
+    display: inline-block;
+    transition: transform 0.15s ease, color 0.15s ease, text-shadow 0.15s ease;
+    will-change: transform, color, text-shadow;
+    cursor: default;
+  }
+
+  p {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: #d1d5db;
+    margin: 2rem auto 3rem;
+    max-width: 36rem;
+    line-height: 1.5;
+  }
+
+  button {
+    background-color: #10B981;
+    padding: 1.25rem 3rem;
+    font-size: 1.25rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 14px rgba(16, 185, 129, 0.5);
+    user-select: none;
+    outline-offset: 4px;
+    outline-color: transparent;
+    will-change: transform, box-shadow;
+  }
+  button:hover,
+  button:focus-visible {
+    background-color: #059669;
+    transform: scale(1.1);
+    box-shadow: 0 8px 18px rgba(5, 150, 105, 0.8);
+    outline-color: #059669;
+    outline-style: solid;
+    outline-width: 3px;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2.5rem;
+      gap: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 1.25rem 0;
+      font-size: 1.125rem;
+    }
+    #lander {
+      padding: 2rem 1.5rem;
+      max-width: 90vw;
+    }
+  }
+</style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col" style="font-family: 'MAKISUPA', serif !important;">
+<body>
 
-  <!-- Header -->
-  <header class="bg-gray-800 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold" style="font-family: 'MAKISUPA', serif !important;">Brains, Brawn & Bong</h1>
-      <nav>
-        <ul class="flex space-x-6 uppercase text-lg">
-          <li><a href="index.html" class="hover:text-green-400 font-bold" style="font-family: 'MAKISUPA', serif !important;">Home</a></li>
-          <li><a href="shop.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Shop</a></li>
-          <li><a href="about.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">About</a></li>
-          <li><a href="howto.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">How To Buy</a></li>
-          <li><a href="contact.html" class="hover:text-green-400" style="font-family: 'MAKISUPA', serif !important;">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div id="start-overlay">Click Anywhere to Enter</div>
+  <canvas id="visualizer"></canvas>
 
-  <!-- Main Content -->
-  <main class="flex-grow container mx-auto p-6 text-center">
-    <h2 class="text-5xl font-extrabold mb-6">Brains. Brawn. Bong.</h2>
-    <p class="text-xl text-gray-300 mb-10 max-w-xl mx-auto">
+  <div id="lander" role="main" aria-label="Welcome message and entry button">
+    <h1>
+      <span id="brains">Brains.</span>
+      <span id="brawn">Brawn.</span>
+      <span id="bong">Bong.</span>
+    </h1>
+    <p>
       This ain't just a shop. It's a movement. A trio of real ones serving up flavor and fun with zero fluff.
     </p>
-    <button
-      onclick="window.location.href='shop.html'"
-      class="bg-green-500 hover:bg-green-600 text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg"
-      aria-label="Enter the shop"
-    >
-      Enter the Shop
-    </button>
-  </main>
+    <button onclick="window.location.href='shop.html'">Enter the Shop</button>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-gray-400">
-      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
-    </div>
-  </footer>
+  <audio id="bg-audio" preload="auto" crossorigin="anonymous">
+    <source src="Music/deathbrain_i_wanna_be_here.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
-  <script src="script.js"></script>
+<script>
+  const overlay = document.getElementById('start-overlay');
+  const audio = document.getElementById('bg-audio');
+
+  const brainsSpan = document.getElementById('brains');
+  const brawnSpan = document.getElementById('brawn');
+  const bongSpan = document.getElementById('bong');
+
+  overlay.addEventListener('click', () => {
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.style.display = 'none', 300);
+
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) {
+      console.warn('Web Audio API not supported');
+      return;
+    }
+    const audioCtx = new AudioContext();
+    const source = audioCtx.createMediaElementSource(audio);
+    const analyser = audioCtx.createAnalyser();
+
+    analyser.fftSize = 256;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+
+    audio.play().catch(console.error);
+
+    function averageRange(arr, start, end) {
+      let sum = 0, count = 0;
+      for(let i = start; i <= end && i < arr.length; i++) {
+        sum += arr[i];
+        count++;
+      }
+      return count ? sum / count : 0;
+    }
+
+    function applyEffects(element, freqValue) {
+      const scale = 1 + freqValue / 200; // Scale from 1 to ~2.25
+      const colorIntensity = Math.min(freqValue + 100, 255);
+      element.style.transform = `scale(${scale.toFixed(2)})`;
+      element.style.color = `rgb(${colorIntensity}, ${180 - freqValue}, 150)`;
+      element.style.textShadow = `0 0 10px rgb(${colorIntensity}, ${180 - freqValue}, 150)`;
+    }
+
+    function animateWords() {
+      requestAnimationFrame(animateWords);
+      analyser.getByteFrequencyData(dataArray);
+
+      const brainsFreq = averageRange(dataArray, 0, 20);
+      const brawnFreq = averageRange(dataArray, 21, 60);
+      const bongFreq = averageRange(dataArray, 61, bufferLength - 1);
+
+      applyEffects(brainsSpan, brainsFreq);
+      applyEffects(brawnSpan, brawnFreq);
+      applyEffects(bongSpan, bongFreq);
+    }
+
+    animateWords();
+  });
+</script>
+
 </body>
 </html>
