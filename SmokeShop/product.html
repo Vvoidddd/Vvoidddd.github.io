@@ -8,7 +8,7 @@
 
   <!-- Open Graph & Twitter -->
   <meta property="og:type" content="website" />
-  <meta id="og-url" property="og:url" content="https://vvoidddd.github.io/SmokeShop/product.html?product=" />
+  <meta id="og-url" property="og:url" content="https://vvoidddd.github.io/SmokeShop/product.html" />
   <meta id="og-title" property="og:title" content="Loading..." />
   <meta id="og-description" property="og:description" content="Loading description..." />
   <meta id="og-image" property="og:image" content="icons/SUMO.png" />
@@ -52,9 +52,9 @@
     <h2 id="product-name" class="text-3xl sm:text-4xl font-extrabold mb-4">Loading...</h2>
     <p id="product-price" class="text-green-400 font-bold text-xl mb-6">$0.00</p>
     <div class="flex justify-center mb-6">
-      <img id="product-image" class="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg" alt="Product Image" />
+      <img id="product-image" class="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg" alt="Product Image" style="display:none;" />
     </div>
-    <p id="product-info" class="text-base sm:text-lg max-w-2xl mx-auto mb-6"></p>
+    <p id="product-info" class="text-base sm:text-lg max-w-2xl mx-auto mb-6">Loading description...</p>
     <a href="howto.html" id="how-to-buy-btn" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300">
       How to Buy
     </a>
@@ -66,83 +66,94 @@
   </footer>
 
   <!-- Product Script -->
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('product');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('product');
 
-  // Updated image filenames to match your shop.html icons folder
-  const products = {
-    mango_madness: {
-      name: 'Mango Madness | Screw-On Cart',
-      price: 55.00,
-      images: ['icons/MM-Mango.png'],
-      info: 'Strong hybrid mango-flavored vape cart.'
-    },
-    purple_punch: {
-      name: 'Purple Punch | Screw-On Cart',
-      price: 55.00,
-      images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
-      info: 'Sweet grape and berry flavored hybrid vape carts.'
-    },
-    sumo: {
-      name: 'SUMO | 5G Disposable',
-      price: 50.00,
-      images: ['icons/SUMO.png', 'icons/SUMO2.png'],
-      info: 'SUMO is a 5G Disposable vape offering premium quality hits.'
-    },
-    strawnana: {
-      name: 'Strawnana | 5G Hybrid Disposable',
-      price: 50.00,
-      images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
-      info: 'Strawnana is a 5G Hybrid Disposable vape with a sweet and fruity flavor profile.'
-    },
-    celestial_blueberry: {
-      name: 'Celestial Blueberry | Edibles',
-      price: 7.00,
-      images: ['icons/CELESTIALBLUEBERRY.png'],
-      info: 'Celestial Blueberry Brust is a pack of 20 pieces, each containing 500mg of premium product.'
-    },
-    off_stamp: {
-      name: 'Off Stamp | Nicotine',
-      price: 26.00,
-      images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
-      info: 'Bangin\' Watermelon is a refreshing Off Stamp X-Cube Kit with a delicious watermelon flavor.'
-    }
-  };
+      const products = {
+        mango_madness: {
+          name: 'Mango Madness | Screw-On Cart',
+          price: 55.00,
+          images: ['icons/MM-Mango.png'],
+          info: 'Strong hybrid mango-flavored vape cart.'
+        },
+        purple_punch: {
+          name: 'Purple Punch | Screw-On Cart',
+          price: 55.00,
+          images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
+          info: 'Sweet grape and berry flavored hybrid vape carts.'
+        },
+        sumo: {
+          name: 'SUMO | 5G Disposable',
+          price: 50.00,
+          images: ['icons/SUMO.png', 'icons/SUMO2.png'],
+          info: 'SUMO is a 5G Disposable vape offering premium quality hits.'
+        },
+        strawnana: {
+          name: 'Strawnana | 5G Hybrid Disposable',
+          price: 50.00,
+          images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
+          info: 'Strawnana is a 5G Hybrid Disposable vape with a sweet and fruity flavor profile.'
+        },
+        celestial_blueberry: {
+          name: 'Celestial Blueberry | Edibles',
+          price: 7.00,
+          images: ['icons/CELESTIALBLUEBERRY.png'],
+          info: 'Celestial Blueberry Brust is a pack of 20 pieces, each containing 500mg of premium product.'
+        },
+        off_stamp: {
+          name: 'Off Stamp | Nicotine',
+          price: 26.00,
+          images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
+          info: 'Bangin\' Watermelon is a refreshing Off Stamp X-Cube Kit with a delicious watermelon flavor.'
+        }
+      };
 
-  const product = products[productId];
-  const imageEl = document.getElementById('product-image');
+      const product = products[productId];
+      const nameEl = document.getElementById('product-name');
+      const priceEl = document.getElementById('product-price');
+      const infoEl = document.getElementById('product-info');
+      const imageEl = document.getElementById('product-image');
 
-  if (product) {
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
-    document.getElementById('product-info').textContent = product.info;
+      if (!product) {
+        // Product not found
+        nameEl.textContent = 'Product Not Found';
+        priceEl.textContent = '';
+        infoEl.textContent = "Sorry, we couldn't find that product.";
+        imageEl.style.display = 'none';
+        return;
+      }
 
-    imageEl.src = product.images[0];
-    imageEl.alt = product.name;
-    imageEl.style.display = 'block';
+      // Update product details
+      nameEl.textContent = product.name;
+      priceEl.textContent = `$${product.price.toFixed(2)}`;
+      infoEl.textContent = product.info;
 
-    if (product.images.length > 1) {
-      let index = 0;
-      setInterval(() => {
-        index = (index + 1) % product.images.length;
-        imageEl.src = product.images[index];
-      }, 3000);
-    }
+      // Show first image and set alt text
+      imageEl.src = product.images[0];
+      imageEl.alt = product.name;
+      imageEl.style.display = 'block';
 
-    // Update OG and Twitter meta tags (Note: only works client side, not for SEO)
-    document.getElementById('og-url').content = window.location.href;
-    document.getElementById('og-title').content = product.name;
-    document.getElementById('og-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-    document.getElementById('og-image').content = product.images[0];
-    document.getElementById('og-image-alt').content = product.name;
-    document.getElementById('twitter-title').content = product.name;
-    document.getElementById('twitter-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-    document.getElementById('twitter-image').content = product.images[0];
-  } else {
-    document.getElementById('product-name').textContent = 'Product Not Found';
-    document.getElementById('product-price').textContent = '';
-    document.getElementById('product-info').textContent = 'Sorry, we couldn\'t find that product.';
-    imageEl.style.display = 'none';
-  }
-</script>
+      // Cycle images if more than one
+      if (product.images.length > 1) {
+        let idx = 0;
+        setInterval(() => {
+          idx = (idx + 1) % product.images.length;
+          imageEl.src = product.images[idx];
+        }, 3000);
+      }
+
+      // Update OG & Twitter meta tags (client-side only)
+      document.getElementById('og-url').content = window.location.href;
+      document.getElementById('og-title').content = product.name;
+      document.getElementById('og-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
+      document.getElementById('og-image').content = product.images[0];
+      document.getElementById('og-image-alt').content = product.name;
+      document.getElementById('twitter-title').content = product.name;
+      document.getElementById('twitter-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
+      document.getElementById('twitter-image').content = product.images[0];
+    });
+  </script>
+</body>
+</html>
