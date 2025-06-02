@@ -5,19 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Product Details | Brains, Brawn & Bong</title>
   <meta name="description" content="Detailed product information for Brains, Brawn & Bong." />
-
-  <!-- Open Graph & Twitter -->
-  <meta property="og:type" content="website" />
-  <meta id="og-url" property="og:url" content="https://vvoidddd.github.io/SmokeShop/product.html" />
-  <meta id="og-title" property="og:title" content="Loading..." />
-  <meta id="og-description" property="og:description" content="Loading description..." />
-  <meta id="og-image" property="og:image" content="icons/SUMO.png" />
-  <meta id="og-image-alt" property="og:image:alt" content="Loading..." />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta id="twitter-title" name="twitter:title" content="Loading..." />
-  <meta id="twitter-description" name="twitter:description" content="Loading description..." />
-  <meta id="twitter-image" name="twitter:image" content="icons/SUMO.png" />
-
   <meta name="theme-color" content="#10B981" />
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
@@ -59,7 +46,7 @@
       <img id="product-image" class="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg" alt="Product Image" style="display: none;" />
     </div>
     <p id="product-info" class="text-base sm:text-lg max-w-2xl mx-auto mb-6">Loading description...</p>
-    <a href="howto.html" id="how-to-buy-btn" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300">
+    <a href="howto.html" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded shadow transition duration-300">
       How to Buy
     </a>
   </main>
@@ -69,66 +56,57 @@
     &copy; 2025 Brains, Brawn & Bong. All rights reserved.
   </footer>
 
-  <!-- Product Script -->
+  <!-- Product Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('product');
+      const productId = new URLSearchParams(window.location.search).get('product');
 
       const products = {
-  sumo: {
-    name: 'SUMO | 5G Hybrid Disposable',
-    price: 50.00,
-    images: ['icons/SUMO.png', 'icons/SUMO2.png'],
-    info: 'SUMO is a 5G Disposable vape offering premium quality hits.'
-  },
-  strawnana: {
-    name: 'Strawnana | 5G Hybrid Disposable',
-    price: 50.00,
-    images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
-    info: 'Strawnana is a 5G Hybrid Disposable vape with a sweet and fruity flavor profile.'
-  },
-  celestial_blueberry: {
-    name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece',
-    price: 35.00,
-    images: ['icons/CELESTIALBLUEBERRY.png'],
-    info: 'Deliciously potent CBD gummies — 20 pieces of 50mg each.'
-  },
-  offstamp_watermelon: {
-    name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
-    price: 26.00,
-    images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
-    info: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.'
-  },
-  mango_madness: {
-    name: 'Mango Madness | Screw-On Cart',
-    price: 30.00,
-    images: ['icons/MM-Mango.png'],
-    info: 'Strong hybrid mango-flavored vape cart.'
-  },
-  purple_punch: {
-    name: 'Purple Punch | Screw-On Cart',
-    price: 30.00,
-    images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
-    info: 'Sweet grape and berry flavored hybrid vape carts.'
-  },
+        sumo: {
+          name: 'SUMO | 5G Hybrid Disposable',
+          price: 50.00,
+          images: ['icons/SUMO.png', 'icons/SUMO2.png'],
+          info: 'Premium 5G disposable vape delivering smooth, potent hits.'
+        },
+        strawnana: {
+          name: 'Strawnana | 5G Hybrid Disposable',
+          price: 50.00,
+          images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
+          info: 'Sweet strawberry-banana hybrid vape, 5G potency.'
+        },
+        offstamp_watermelon: {
+          name: "Bangin' Watermelon | Off Stamp X-Cube Kit",
+          price: 26.00,
+          images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
+          info: '25k+ puffs, TFT screen, 1100mAh battery, watermelon flavor.'
+        },
+        celestial_blueberry: {
+          name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece',
+          price: 35.00,
+          images: ['icons/CELESTIALBLUEBERRY.png'],
+          info: '20-piece gummy pack, 50mg each, premium blueberry flavor.'
+        },
+        mango_madness: {
+          name: 'Mango Madness | Screw-On Cart',
+          price: 30.00,
+          images: ['icons/MM-Mango.png'],
+          info: 'Strong hybrid mango-flavored vape cart.'
+        },
+        purple_punch: {
+          name: 'Purple Punch | Screw-On Cart',
+          price: 30.00,
+          images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
+          info: 'Sweet grape & berry hybrid vape cart.'
+        }
+      };
 
-  smartiez: {
-    name: 'Smartiez | 3.5G Exotic Flower',
-    price: 60.00,
-    images: ['icons/smartiez.png'],  // Make sure this image exists in your icons folder
-    info: 'Premium indoor exotic strain — Smartiez is a hybrid that combines candy and gas for an ultra-dank experience.'
-  }
-};
-
+      const product = products[productId];
       const nameEl  = document.getElementById('product-name');
       const priceEl = document.getElementById('product-price');
       const infoEl  = document.getElementById('product-info');
       const imgEl   = document.getElementById('product-image');
 
-      const product = products[productId];
       if (!product) {
-        // If the key isn’t found:
         nameEl.textContent = 'Product Not Found';
         priceEl.textContent = '';
         infoEl.textContent = "Sorry, we couldn't find that product.";
@@ -136,17 +114,13 @@
         return;
       }
 
-      // Populate name, price, info
       nameEl.textContent  = product.name;
       priceEl.textContent = `$${product.price.toFixed(2)}`;
       infoEl.textContent  = product.info;
-
-      // Show first image
-      imgEl.src          = product.images[0];
-      imgEl.alt          = product.name;
+      imgEl.src           = product.images[0];
+      imgEl.alt           = product.name;
       imgEl.style.display = 'block';
 
-      // Cycle through images if there are more
       if (product.images.length > 1) {
         let idx = 0;
         setInterval(() => {
@@ -154,16 +128,6 @@
           imgEl.src = product.images[idx];
         }, 3000);
       }
-
-      // Update OG & Twitter meta tags (client-side only)
-      document.getElementById('og-url').content         = window.location.href;
-      document.getElementById('og-title').content       = product.name;
-      document.getElementById('og-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-      document.getElementById('og-image').content       = product.images[0];
-      document.getElementById('og-image-alt').content   = product.name;
-      document.getElementById('twitter-title').content       = product.name;
-      document.getElementById('twitter-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-      document.getElementById('twitter-image').content       = product.images[0];
     });
   </script>
 </body>
