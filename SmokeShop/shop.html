@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,93 +44,145 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Main Content -->
   <main class="flex-grow container mx-auto px-4 py-6">
-    <section class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Shop Our 5G Disposables, Gummies & Vapes</h2>
-      <p class="text-gray-400 text-base sm:text-lg">Premium on-the-go products to elevate your chill.</p>
-      <div class="mt-6">
-        <button
-          onclick="window.location.href='howto.html'"
-          class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition duration-200 shadow-lg"
-        >
-          How To Buy
-        </button>
-      </div>
+    <section class="text-center mb-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Shop By Category</h2>
+      <select id="categorySelect" class="text-gray-900 rounded-md p-2 mb-8 max-w-xs mx-auto block">
+        <option value="all" selected>All Categories</option>
+        <option value="disposables">Disposables</option>
+        <option value="nicotine">Nicotine</option>
+        <option value="edibles">Edibles</option>
+        <option value="screwoncarts">Screw-On Carts</option>
+      </select>
     </section>
 
-    <section class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="product-grid"></section>
+    <div id="productsContainer" class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Disposables -->
+      <article class="product-item category-disposables bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="icons/SUMO.png" alt="SUMO Disposable" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">SUMO | 5G Hybrid Disposable</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">Strong hybrid flavor with smooth hits.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$50.00</p>
+          <a href="product.html?product=smartiez" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+      <article class="product-item category-disposables bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="icons/Strawnana.png" alt="Strawnana Disposable" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">Strawnana | 5G Hybrid Disposable</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">Sweet strawberry-banana hybrid vape.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$50.00</p>
+          <a href="product.html?product=strawnana" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+      <!-- Nicotine -->
+      <article class="product-item category-nicotine bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png" alt="Off Stamp Watermelon" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">Bangin' Watermelon | Off Stamp X-Cube Kit</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$26.00</p>
+          <a href="product.html?product=offstamp_watermelon" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+      <!-- Edibles -->
+      <article class="product-item category-edibles bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="icons/CELESTIALBLUEBERRY.png" alt="Celestial Blueberry" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">Deliciously potent CBD gummies, 10 pieces per pack.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$35.00</p>
+          <a href="product.html?product=celestial_blueberry" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+      <!-- Screw-On Carts: Mango Madness -->
+      <article class="product-item category-screwoncarts bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden">
+          <img src="icons/MM-Mango.png" alt="Mango Madness Screw-On Cart" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">Mango Madness | Screw-On Cart</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">Strong hybrid mango-flavored vape cart.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$55.00</p>
+          <a href="product.html?product=mango_madness" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+      <!-- Screw-On Carts: Purple Punch (two images) -->
+      <article class="product-item category-screwoncarts bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
+        <div class="relative w-full aspect-square overflow-hidden grid grid-cols-2 gap-1">
+          <img src="icons/MM-PurplePunch.png" alt="Purple Punch Screw-On Cart 1" class="w-full h-full object-cover rounded" />
+          <img src="icons/MM-PurplePunch2.png" alt="Purple Punch Screw-On Cart 2" class="w-full h-full object-cover rounded" />
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h4 class="text-xl font-bold mb-2">Purple Punch | Screw-On Cart</h4>
+          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">Sweet grape and berry flavored hybrid vape carts.</p>
+          <p class="text-green-400 text-lg font-semibold mb-4">$55.00</p>
+          <a href="product.html?product=purple_punch" onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)" class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">View Details</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- How To Buy Section -->
+    <section class="mt-12 max-w-4xl mx-auto bg-gray-800 rounded-lg p-6 text-center">
+      <h3 class="text-2xl font-bold mb-4">How to Buy</h3>
+      <p class="mb-3 text-gray-300 leading-relaxed">
+        Select your desired products above. Click "View Details" for each item to get full information and purchase options.
+        If you have questions, use the Contact page to reach out. We accept various payment methods and ship discreetly.
+      </p>
+      <p class="text-gray-300">
+        Stay responsible and enjoy your experience with Brains, Brawn & Bong.
+      </p>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 p-4">
-    <div class="container mx-auto text-center text-gray-400 text-sm">
-      &copy; 2025 Brains, Brawn & Bong. All rights reserved.
-    </div>
+  <footer class="bg-gray-800 p-4 text-center text-gray-400">
+    &copy; 2025 Brains, Brawn & Bong. All rights reserved.
   </footer>
 
   <script>
-    const products = [
-      {
-        id: 'smartiez',
-        name: 'Smartiez | 5G Indica Disposable',
-        price: 50.00,
-        desc: 'Relax with the sweet and fruity flavor of Smartiez, an indica designed for winding down.',
-        img: 'icons/SUMO.png'
-      },
-      {
-        id: 'strawnana',
-        name: 'Strawnana | 5G Hybrid Disposable',
-        price: 50.00,
-        desc: 'Savor a balanced hybrid with sweet strawberry-banana notes.',
-        img: 'icons/Strawnana.png'
-      },
-      {
-        id: 'celestial_blueberry',
-        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
-        price: 7.00,
-        desc: 'Cosmic sweetness in a 500mg gummy pack—20 pieces of pure bliss.',
-        img: 'icons/CELESTIALBLUEBERRY.png',
-        metaPrice: '$7 each | $60 per bottle'
-      },
-      {
-        id: 'offstamp_watermelon',
-        name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
-        price: 26.00,
-        desc: '25k+ puffs of juicy watermelon in a disposable pod + smart 1100mAh battery & TFT screen.',
-        img: 'icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'
-      }
-    ];
+    const categorySelect = document.getElementById('categorySelect');
+    const productsContainer = document.getElementById('productsContainer');
 
-    const grid = document.getElementById('product-grid');
+    categorySelect.addEventListener('change', () => {
+      const selected = categorySelect.value;
+      const items = document.querySelectorAll('.product-item');
 
-    for (const p of products) {
-      const card = document.createElement('div');
-      card.className = 'bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col';
+      items.forEach(item => {
+        if (selected === 'all') {
+          item.style.display = 'flex';
+          return;
+        }
+        if (item.classList.contains(`category-${selected}`)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
 
-      card.innerHTML = `
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="${p.img}" alt="${p.name}" class="absolute top-0 left-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold mb-2">${p.name}</h3>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">${p.desc}</p>
-          <p class="text-green-400 text-lg font-semibold mb-4">${p.metaPrice ?? '$' + p.price.toFixed(2)}</p>
-          <a href="product.html?product=${p.id}"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      `;
-
-      grid.appendChild(card);
-    }
-
+    // Restore scroll position if available
     window.addEventListener('load', () => {
-      const pos = sessionStorage.getItem('shopScrollPos');
-      if (pos) {
-        window.scrollTo(0, +pos);
+      const scrollPos = sessionStorage.getItem('shopScrollPos');
+      if (scrollPos) {
+        window.scrollTo(0, parseInt(scrollPos));
         sessionStorage.removeItem('shopScrollPos');
       }
     });

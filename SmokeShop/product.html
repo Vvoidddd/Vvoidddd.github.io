@@ -66,71 +66,83 @@
   </footer>
 
   <!-- Product Script -->
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('product');
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get('product');
 
-    const products = {
-      smartiez: {
-        name: 'Smartiez | 5G Indica Disposable',
-        price: 50.00,
-        images: ['icons/SUMO.png', 'icons/SUMO2.png'],
-        info: 'Smartiez is a 5G Indica Disposable vape offering a smooth and relaxing experience.'
-      },
-      strawnana: {
-        name: 'Strawnana | 5G Hybrid Disposable',
-        price: 50.00,
-        images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
-        info: 'Strawnana is a 5G Hybrid Disposable vape with a sweet and fruity flavor profile.'
-      },
-      celestial_blueberry: {
-        name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 20pcs',
-        price: 7.00,
-        images: ['icons/CELESTIALBLUEBERRY.png'],
-        info: 'Celestial Blueberry Brust is a pack of 20 pieces, each containing 500mg of premium product.'
-      },
-      offstamp_watermelon: {
-        name: 'Bangin\' Watermelon | Off Stamp X-Cube Kit',
-        price: 26.00,
-        images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
-        info: 'Bangin\' Watermelon is a refreshing Off Stamp X-Cube Kit with a delicious watermelon flavor.'
-      }
-    };
-
-    const product = products[productId];
-    const imageEl = document.getElementById('product-image');
-
-    if (product) {
-      document.getElementById('product-name').textContent = product.name;
-      document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
-      document.getElementById('product-info').textContent = product.info;
-
-      imageEl.src = product.images[0];
-      imageEl.alt = product.name;
-
-      if (product.images.length > 1) {
-        let index = 0;
-        setInterval(() => {
-          index = (index + 1) % product.images.length;
-          imageEl.src = product.images[index];
-        }, 3000);
-      }
-
-      const firstImage = product.images[0];
-      document.getElementById('og-url').content = window.location.href;
-      document.getElementById('og-title').content = product.name;
-      document.getElementById('og-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-      document.getElementById('og-image').content = firstImage;
-      document.getElementById('og-image-alt').content = product.name;
-      document.getElementById('twitter-title').content = product.name;
-      document.getElementById('twitter-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
-      document.getElementById('twitter-image').content = firstImage;
-    } else {
-      document.getElementById('product-name').textContent = 'Product Not Found';
-      document.getElementById('product-price').textContent = '';
-      document.getElementById('product-info').textContent = '';
-      imageEl.style.display = 'none';
+  // Updated image filenames to match your shop.html icons folder
+  const products = {
+    mango_madness: {
+      name: 'Mango Madness | Screw-On Cart',
+      price: 55.00,
+      images: ['icons/MM-Mango.png'],
+      info: 'Strong hybrid mango-flavored vape cart.'
+    },
+    purple_punch: {
+      name: 'Purple Punch | Screw-On Cart',
+      price: 55.00,
+      images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
+      info: 'Sweet grape and berry flavored hybrid vape carts.'
+    },
+    sumo: {
+      name: 'SUMO | 5G Disposable',
+      price: 50.00,
+      images: ['icons/SUMO.png', 'icons/SUMO2.png'],
+      info: 'SUMO is a 5G Disposable vape offering premium quality hits.'
+    },
+    strawnana: {
+      name: 'Strawnana | 5G Hybrid Disposable',
+      price: 50.00,
+      images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
+      info: 'Strawnana is a 5G Hybrid Disposable vape with a sweet and fruity flavor profile.'
+    },
+    celestial_blueberry: {
+      name: 'Celestial Blueberry | Edibles',
+      price: 7.00,
+      images: ['icons/CELESTIALBLUEBERRY.png'],
+      info: 'Celestial Blueberry Brust is a pack of 20 pieces, each containing 500mg of premium product.'
+    },
+    off_stamp: {
+      name: 'Off Stamp | Nicotine',
+      price: 26.00,
+      images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
+      info: 'Bangin\' Watermelon is a refreshing Off Stamp X-Cube Kit with a delicious watermelon flavor.'
     }
-  </script>
-</body>
-</html>
+  };
+
+  const product = products[productId];
+  const imageEl = document.getElementById('product-image');
+
+  if (product) {
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
+    document.getElementById('product-info').textContent = product.info;
+
+    imageEl.src = product.images[0];
+    imageEl.alt = product.name;
+    imageEl.style.display = 'block';
+
+    if (product.images.length > 1) {
+      let index = 0;
+      setInterval(() => {
+        index = (index + 1) % product.images.length;
+        imageEl.src = product.images[index];
+      }, 3000);
+    }
+
+    // Update OG and Twitter meta tags (Note: only works client side, not for SEO)
+    document.getElementById('og-url').content = window.location.href;
+    document.getElementById('og-title').content = product.name;
+    document.getElementById('og-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
+    document.getElementById('og-image').content = product.images[0];
+    document.getElementById('og-image-alt').content = product.name;
+    document.getElementById('twitter-title').content = product.name;
+    document.getElementById('twitter-description').content = `Buy ${product.name} for $${product.price.toFixed(2)}.`;
+    document.getElementById('twitter-image').content = product.images[0];
+  } else {
+    document.getElementById('product-name').textContent = 'Product Not Found';
+    document.getElementById('product-price').textContent = '';
+    document.getElementById('product-info').textContent = 'Sorry, we couldn\'t find that product.';
+    imageEl.style.display = 'none';
+  }
+</script>
