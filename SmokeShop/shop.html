@@ -59,172 +59,132 @@
 
     <!-- Products Container -->
     <div id="productsContainer" class="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Disposables: SUMO -->
-      <article class="product-item category-disposables bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="icons/SUMO.png" alt="SUMO Disposable" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">SUMO | 5G Hybrid Disposable</h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            Premium 5G disposable vape delivering smooth, potent hits.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$50.00</p>
-          <a href="product.html?product=sumo"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
-
-      <!-- Disposables: Strawnana -->
-      <article class="product-item category-disposables bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="icons/Strawnana.png" alt="Strawnana Disposable" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">Strawnana | 5G Hybrid Disposable</h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            Sweet strawberry-banana hybrid vape, 5G potency.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$50.00</p>
-          <a href="product.html?product=strawnana"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
-
-      <!-- Nicotine: Off Stamp Watermelon -->
-      <article class="product-item category-nicotine bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png" alt="Off Stamp Watermelon" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">Bangin' Watermelon | Off Stamp X-Cube Kit</h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            25k+ puffs, TFT screen, 1100mAh battery, watermelon flavor.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$26.00</p>
-          <a href="product.html?product=offstamp_watermelon"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
-
-      <!-- Edibles: Celestial Blueberry -->
-      <article class="product-item category-edibles bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="icons/CELESTIALBLUEBERRY.png" alt="Celestial Blueberry" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">
-            RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece
-          </h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            20-piece gummy pack, 50mg each, premium blueberry flavor.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$35.00</p>
-          <a href="product.html?product=celestial_blueberry"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
-
-      <!-- Screw-On Carts: Mango Madness -->
-      <article class="product-item category-screwoncarts bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden">
-          <img src="icons/MM-Mango.png" alt="Mango Madness Cart" class="absolute inset-0 w-full h-full object-cover" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">Mango Madness | Screw-On Cart</h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            Strong hybrid mango-flavored vape cart.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$30.00</p>
-          <a href="product.html?product=mango_madness"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
-
-      <!-- Screw-On Carts: Purple Punch (two images) -->
-      <article class="product-item category-screwoncarts bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col">
-        <div class="relative w-full aspect-square overflow-hidden grid grid-cols-2 gap-1">
-          <img src="icons/MM-PurplePunch.png" alt="Purple Punch 1" class="w-full h-full object-cover rounded" />
-          <img src="icons/MM-PurplePunch2.png" alt="Purple Punch 2" class="w-full h-full object-cover rounded" />
-        </div>
-        <div class="p-5 flex flex-col flex-grow">
-          <h4 class="text-xl font-bold mb-2">Purple Punch | Screw-On Cart</h4>
-          <p class="text-gray-400 mb-4 flex-grow text-sm sm:text-base">
-            Sweet grape & berry hybrid vape cart.
-          </p>
-          <p class="text-green-400 text-lg font-semibold mb-4">$30.00</p>
-          <a href="product.html?product=purple_punch"
-             onclick="sessionStorage.setItem('shopScrollPos', window.scrollY)"
-             class="block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg">
-            View Details
-          </a>
-        </div>
-      </article>
+      <!-- Products injected here -->
     </div>
 
     <!-- How To Buy Section -->
     <section class="mt-12 max-w-4xl mx-auto bg-gray-800 rounded-lg p-6 text-center">
       <h3 class="text-2xl font-bold mb-4">How to Buy</h3>
       <p class="mb-3 text-gray-300 leading-relaxed">
-        Select your desired products above. Click “View Details” for each item to get full information and purchase options.
-        If you have questions, use the Contact page to reach out. We accept various payment methods and ship discreetly.
-      </p>
-      <p class="text-gray-300">
-        Stay responsible and enjoy your experience with Brains, Brawn & Bong.
+        Select your product, click "View Details," and follow the checkout instructions. Questions? Reach out on our <a href="contact.html" class="text-green-400 underline">Contact page</a>.
       </p>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 p-4 text-center text-gray-400">
+  <footer class="bg-gray-800 p-6 mt-auto text-center text-gray-400 text-sm">
     &copy; 2025 Brains, Brawn & Bong. All rights reserved.
   </footer>
 
+  <!-- Dynamic Product & Filter Script -->
   <script>
     const categorySelect = document.getElementById('categorySelect');
-    const productItems = document.querySelectorAll('.product-item');
+    const productsContainer = document.getElementById('productsContainer');
 
-    function showCategory(category) {
-      productItems.forEach(item => {
-        if (category === 'all' || item.classList.contains(`category-${category}`)) {
-          item.style.display = 'flex';
+    // Render products dynamically from JSON data
+    function renderProducts(products) {
+      productsContainer.innerHTML = ''; // clear existing
+
+      products.forEach(product => {
+        const article = document.createElement('article');
+        article.className = `product-item category-${product.category} bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col`;
+
+        // Image container
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'relative w-full aspect-square overflow-hidden';
+        
+        if(product.images.length > 1) {
+          // grid for multiple images
+          imgContainer.className += ' grid grid-cols-2 gap-1';
+          product.images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = product.name;
+            img.className = 'w-full h-full object-cover rounded';
+            imgContainer.appendChild(img);
+          });
         } else {
-          item.style.display = 'none';
+          // single image absolute cover
+          const img = document.createElement('img');
+          img.src = product.images[0];
+          img.alt = product.name;
+          img.className = 'absolute inset-0 w-full h-full object-cover';
+          imgContainer.appendChild(img);
         }
+
+        article.appendChild(imgContainer);
+
+        // Text container
+        const textDiv = document.createElement('div');
+        textDiv.className = 'p-5 flex flex-col flex-grow';
+
+        const h4 = document.createElement('h4');
+        h4.className = 'text-xl font-bold mb-2';
+        h4.textContent = product.name;
+
+        const pDesc = document.createElement('p');
+        pDesc.className = 'text-gray-400 mb-4 flex-grow text-sm sm:text-base';
+        pDesc.textContent = product.description;
+
+        const pPrice = document.createElement('p');
+        pPrice.className = 'text-green-400 text-lg font-semibold mb-4';
+        pPrice.textContent = `$${product.price.toFixed(2)}`;
+
+        const a = document.createElement('a');
+        a.href = `product.html?product=${encodeURIComponent(product.id)}`;
+        a.className = 'block w-full text-center bg-gray-700 hover:bg-gray-600 px-4 py-2 uppercase font-bold rounded-lg';
+        a.textContent = 'View Details';
+
+        a.addEventListener('click', () => {
+          sessionStorage.setItem('shopScrollPos', window.scrollY);
+        });
+
+        textDiv.appendChild(h4);
+        textDiv.appendChild(pDesc);
+        textDiv.appendChild(pPrice);
+        textDiv.appendChild(a);
+
+        article.appendChild(textDiv);
+        productsContainer.appendChild(article);
       });
     }
 
-    categorySelect.addEventListener('change', () => {
-      showCategory(categorySelect.value);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('load', () => {
-      // Show all by default
-      showCategory('all');
-
-      // Restore scroll position if returning from a product page
-      const scrollPos = sessionStorage.getItem('shopScrollPos');
-      if (scrollPos) {
-        window.scrollTo(0, parseInt(scrollPos, 10));
-        sessionStorage.removeItem('shopScrollPos');
+    // Filter products by category
+    function filterProducts(products) {
+      const selected = categorySelect.value;
+      if (selected === 'all') {
+        renderProducts(products);
+      } else {
+        renderProducts(products.filter(p => p.category === selected));
       }
-    });
+    }
+
+    // Load products.json and initialize page
+    fetch('products.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load products.json');
+        return response.json();
+      })
+      .then(products => {
+        // Initial render all
+        renderProducts(products);
+
+        // On category change
+        categorySelect.addEventListener('change', () => filterProducts(products));
+
+        // Restore scroll pos if any
+        window.addEventListener('load', () => {
+          const savedPos = sessionStorage.getItem('shopScrollPos');
+          if (savedPos) {
+            window.scrollTo(0, parseInt(savedPos));
+            sessionStorage.removeItem('shopScrollPos');
+          }
+        });
+      })
+      .catch(err => {
+        productsContainer.innerHTML = `<p class="text-red-500 text-center col-span-full">Error loading products. Try refreshing.</p>`;
+        console.error(err);
+      });
   </script>
 </body>
 </html>

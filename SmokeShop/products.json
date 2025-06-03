@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sumo",
+    "name": "SUMO | 5G Hybrid Disposable",
+    "description": "Premium 5G disposable vape delivering smooth, potent hits.",
+    "price": 65.00,
+    "category": "disposables",
+    "images": ["icons/SUMO.png"]
+  },
+  {
+    "id": "strawnana",
+    "name": "Strawnana | 5G Hybrid Disposable",
+    "description": "Sweet strawberry-banana hybrid vape, 5G potency.",
+    "price": 65.00,
+    "category": "disposables",
+    "images": ["icons/Strawnana.png"]
+  },
+  {
+    "id": "offstamp_watermelon",
+    "name": "Bangin' Watermelon | Off Stamp X-Cube Kit",
+    "description": "25k+ puffs, TFT screen, 1100mAh battery, watermelon flavor.",
+    "price": 26.00,
+    "category": "nicotine",
+    "images": ["icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png"]
+  },
+  {
+    "id": "celestial_blueberry",
+    "name": "RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece",
+    "description": "20-piece gummy pack, 50mg each, premium blueberry flavor.",
+    "price": 35.00,
+    "category": "edibles",
+    "images": ["icons/CELESTIALBLUEBERRY.png"]
+  },
+  {
+    "id": "mango_madness",
+    "name": "Mango Madness | Screw-On Cart",
+    "description": "Strong hybrid mango-flavored vape cart.",
+    "price": 45.00,
+    "category": "screwoncarts",
+    "images": ["icons/MM-Mango.png"]
+  },
+  {
+    "id": "purple_punch",
+    "name": "Purple Punch | Screw-On Cart",
+    "description": "Sweet grape & berry hybrid vape cart.",
+    "price": 45.00,
+    "category": "screwoncarts",
+    "images": ["icons/MM-PurplePunch.png", "icons/MM-PurplePunch2.png"]
+  },
+  {
+    "id": "pbj_souffle",
+    "name": "PB & J Souffle | 2G Indica Cartridge",
+    "description": "Creamy peanut butter meets grape jelly in this chill Indica-heavy 2G cart.",
+    "price": 50.00,
+    "category": "screwoncarts",
+    "images": ["icons/PB_&_J_Souffle.png", "icons/PB_&_J_Souffle2.png"]
+  },
+  {
+    "id": "honey_oz",
+    "name": "Honey Oz | 2G Sativa Cartridge",
+    "description": "Bright citrus and honey flavors in this uplifting 2G Sativa cart.",
+    "price": 50.00,
+    "category": "screwoncarts",
+    "images": ["icons/HoneyOZ.png", "icons/HoneyOZ2.png"]
+  }
+]

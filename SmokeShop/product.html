@@ -56,55 +56,31 @@
     &copy; 2025 Brains, Brawn & Bong. All rights reserved.
   </footer>
 
-  <!-- Product Logic -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const productId = new URLSearchParams(window.location.search).get('product');
+  <!-- ... keep your existing HTML head and body above unchanged ... -->
 
-      const products = {
-        sumo: {
-          name: 'SUMO | 5G Hybrid Disposable',
-          price: 50.00,
-          images: ['icons/SUMO.png', 'icons/SUMO2.png'],
-          info: 'Premium 5G disposable vape delivering smooth, potent hits.'
-        },
-        strawnana: {
-          name: 'Strawnana | 5G Hybrid Disposable',
-          price: 50.00,
-          images: ['icons/Strawnana.png', 'icons/Strawnana2.png'],
-          info: 'Sweet strawberry-banana hybrid vape, 5G potency.'
-        },
-        offstamp_watermelon: {
-          name: "Bangin' Watermelon | Off Stamp X-Cube Kit",
-          price: 26.00,
-          images: ['icons/Off-Stamp_X-Cube_Bangin-Watermelon_Kit-Pod_600x600_1.png'],
-          info: '25k+ puffs, TFT screen, 1100mAh battery, watermelon flavor.'
-        },
-        celestial_blueberry: {
-          name: 'RED TRIANGLE BLACK EDITION CELESTIAL BLUEBERRY BRUST 500mg – 50mg/piece',
-          price: 35.00,
-          images: ['icons/CELESTIALBLUEBERRY.png'],
-          info: '20-piece gummy pack, 50mg each, premium blueberry flavor.'
-        },
-        mango_madness: {
-          name: 'Mango Madness | Screw-On Cart',
-          price: 30.00,
-          images: ['icons/MM-Mango.png'],
-          info: 'Strong hybrid mango-flavored vape cart.'
-        },
-        purple_punch: {
-          name: 'Purple Punch | Screw-On Cart',
-          price: 30.00,
-          images: ['icons/MM-PurplePunch.png', 'icons/MM-PurplePunch2.png'],
-          info: 'Sweet grape & berry hybrid vape cart.'
-        }
-      };
+<!-- Product Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const productId = new URLSearchParams(window.location.search).get('product');
+    const nameEl = document.getElementById('product-name');
+    const priceEl = document.getElementById('product-price');
+    const infoEl = document.getElementById('product-info');
+    const imgEl = document.getElementById('product-image');
 
-      const product = products[productId];
-      const nameEl  = document.getElementById('product-name');
-      const priceEl = document.getElementById('product-price');
-      const infoEl  = document.getElementById('product-info');
-      const imgEl   = document.getElementById('product-image');
+    if (!productId) {
+      nameEl.textContent = 'No Product Selected';
+      priceEl.textContent = '';
+      infoEl.textContent = 'Please select a product from the shop.';
+      imgEl.style.display = 'none';
+      return;
+    }
+
+    try {
+      const response = await fetch('products.json');
+      if (!response.ok) throw new Error(`Failed to load products: ${response.statusText}`);
+
+      const products = await response.json();
+      const product = products.find(p => p.id === productId);
 
       if (!product) {
         nameEl.textContent = 'Product Not Found';
@@ -114,21 +90,32 @@
         return;
       }
 
-      nameEl.textContent  = product.name;
+      nameEl.textContent = product.name;
       priceEl.textContent = `$${product.price.toFixed(2)}`;
-      infoEl.textContent  = product.info;
-      imgEl.src           = product.images[0];
-      imgEl.alt           = product.name;
-      imgEl.style.display = 'block';
+      infoEl.textContent = product.description;
+      
+      if (product.images && product.images.length > 0) {
+        imgEl.src = product.images[0];
+        imgEl.alt = product.name;
+        imgEl.style.display = 'block';
 
-      if (product.images.length > 1) {
-        let idx = 0;
-        setInterval(() => {
-          idx = (idx + 1) % product.images.length;
-          imgEl.src = product.images[idx];
-        }, 3000);
+        if (product.images.length > 1) {
+          let idx = 0;
+          setInterval(() => {
+            idx = (idx + 1) % product.images.length;
+            imgEl.src = product.images[idx];
+          }, 3000);
+        }
+      } else {
+        imgEl.style.display = 'none';
       }
-    });
-  </script>
-</body>
-</html>
+
+    } catch (error) {
+      nameEl.textContent = 'Error Loading Product';
+      priceEl.textContent = '';
+      infoEl.textContent = 'There was an issue loading the product details.';
+      imgEl.style.display = 'none';
+      console.error(error);
+    }
+  });
+</script>
