@@ -62,5 +62,37 @@
     "price": 50.00,
     "category": "screwoncarts",
     "images": ["icons/HoneyOZ.png", "icons/HoneyOZ2.png"]
+  },
+  {
+    "id": "grandaddy_purp",
+    "name": "Grandaddy Purp | 1G High THCP Infused Preroll",
+    "description": "Type: Indica\nCannabinoids: 300mg Delta 8, 25mg THCP\nEffects: Euphoric, Happy, Relaxing\nFlavor Profile: Sweet, Fruity, Skunky",
+    "price": 9.00,
+    "category": "prerolls",
+    "images": ["icons/GP-Preroll.png", "icons/GP-Preroll2.png"]
+  },
+  {
+    "id": "sour_tsunami",
+    "name": "Sour Tsunami | 1G Delta 8 Infused Preroll",
+    "description": "Type: Indica\nCannabinoids: 210mg Delta 8\nEffects: Happy, Relaxed\nFlavor Profile: Pine, Sweet Gas",
+    "price": 5.20,
+    "category": "prerolls",
+    "images": ["icons/ST-Preroll.png", "icons/ST-Preroll2.png"]
+  },
+  {
+    "id": "thca_2g_preroll",
+    "name": "THC-A 2 Gram Pre Roll | 2 Count",
+    "description": "The ultimate indulgence for enthusiasts. Each pack contains two 2-gram pre-rolls packed with premium indoor flower boasting a whopping 42% THC-A content.\n\nThese pre-rolls are made with the finest indoor-grown flower, ensuring a smooth, flavorful smoking experience with every puff. Enjoy the rich, complex flavors of our terpene-infused pre-rolls, available in a variety of mouthwatering strains.\n\n10 per pack",
+    "price": 10.00,
+    "category": "prerolls",
+    "images": ["icons/G41-Preroll.png"]
+  },
+  {
+    "id": "blackberry_bpop",
+    "name": "Blackberry B-Pop Geek Bar Pulse X 25000 Puffs Disposable Vape",
+    "description": "Blackberry B-Pop Geek Bar Pulse X 25000 Puffs Disposable offers an exceptional vaping experience with a rich and bold blackberry flavor. Enjoy up to 25,000 puffs with its sleek, rechargeable design and customizable performance settings. Order now from our online vape shop and savor the delicious taste of Blackberry B-Pop.",
+    "price": 26.00,
+    "category": "nicotine",
+    "images": ["icons/GB-Pulse.png"]
   }
 ]
