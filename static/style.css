@@ -113,3 +113,15 @@ textarea {
   font-family: inherit;
   margin: 0;
 }
+
+/* GitHub button */
+.github-btn {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.github-btn:hover { opacity: 0.9; }
