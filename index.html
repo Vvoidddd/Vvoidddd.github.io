@@ -6,7 +6,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -16,138 +16,128 @@
 }
 
 body {
-  background: #000;
-  color: #fff;
-  font-family: "Jersey 20", monospace;
   height: 100vh;
+  background: linear-gradient(135deg, #0f0f14, #1a1a22);
+  font-family: "Inter", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  color: #fff;
 }
 
-.container {
-  border: 1px solid #fff;
-  padding: 24px;
-  width: 520px;
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 32px 36px 48px;
+  width: 420px;
   max-width: 90%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
-.logo {
-  font-size: 14px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  white-space: pre;
+h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
-.status {
-  border: 1px solid #fff;
-  padding: 10px;
-  margin-bottom: 16px;
-  font-size: 14px;
+p {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-bottom: 28px;
 }
 
 .progress {
-  border: 1px solid #fff;
-  height: 24px;
-  margin-bottom: 16px;
-  position: relative;
+  height: 10px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 32px;
 }
 
 .progress-bar {
   height: 100%;
-  width: 0%;
-  background: #fff;
-  transition: width 0.3s linear;
+  width: 35%;
+  background: linear-gradient(90deg, #6d7cff, #9b6dff);
+  animation: shimmer 2s infinite linear;
 }
 
-.controls {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+@keyframes shimmer {
+  from { background-position: 0 0; }
+  to { background-position: 200% 0; }
 }
 
-button {
-  background: #000;
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 6px 12px;
-  font-family: inherit;
+.load-area {
+  position: relative;
+  height: 80px;
+}
+
+#loadBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: none;
   cursor: pointer;
-}
-
-button:hover {
   background: #fff;
   color: #000;
+  transition: transform 0.15s ease;
 }
 
 .footer {
-  margin-top: 16px;
+  margin-top: 32px;
   font-size: 12px;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<pre class="logo">
- ██████╗ ██████╗ ███╗   ██╗███████╗
-██╔════╝██╔═══██╗████╗  ██║██╔════╝
-██║     ██║   ██║██╔██╗ ██║█████╗  
-██║     ██║   ██║██║╚██╗██║██╔══╝  
-╚██████╗╚██████╔╝██║ ╚████║███████╗
- ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
-</pre>
+<div class="card">
+  <h1>Under Construction</h1>
+  <p>We’re rebuilding this page.  
+     Click the button below to load the site.</p>
 
-<div class="status" id="status">
-STATUS: INITIALIZING MODULES…
-</div>
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
 
-<div class="progress">
-  <div class="progress-bar" id="bar"></div>
-</div>
+  <div class="load-area" id="area">
+    <button id="loadBtn">Load Site</button>
+  </div>
 
-<div class="controls">
-  <button id="advance">ADVANCE</button>
-  <button id="reset">RESET</button>
-</div>
-
-<div class="footer">
-  Site is under construction. No ETA. Touch grass.
-</div>
+  <div class="footer">
+    This may take a while.
+  </div>
 </div>
 
 <script>
-const states = [
-  "INITIALIZING MODULES…",
-  "COMPILING ASSETS…",
-  "BREAKING EVERYTHING…",
-  "FIXING WHAT JUST BROKE…",
-  "ADDING FEATURES NO ONE ASKED FOR…",
-  "ALMOST DONE (PROBABLY)…"
-];
+const btn = document.getElementById("loadBtn");
+const area = document.getElementById("area");
 
-let index = 0;
-let progress = 0;
+area.addEventListener("mousemove", (e) => {
+  const rect = btn.getBoundingClientRect();
+  const distX = Math.abs(e.clientX - (rect.left + rect.width / 2));
+  const distY = Math.abs(e.clientY - (rect.top + rect.height / 2));
 
-const statusEl = document.getElementById("status");
-const barEl = document.getElementById("bar");
+  if (distX < 80 && distY < 40) {
+    const areaRect = area.getBoundingClientRect();
 
-document.getElementById("advance").onclick = () => {
-  index = (index + 1) % states.length;
-  progress = Math.min(progress + Math.floor(Math.random() * 25 + 10), 100);
+    const x = Math.random() * (areaRect.width - rect.width);
+    const y = Math.random() * (areaRect.height - rect.height);
 
-  statusEl.textContent = "STATUS: " + states[index];
-  barEl.style.width = progress + "%";
-};
-
-document.getElementById("reset").onclick = () => {
-  index = 0;
-  progress = 0;
-  statusEl.textContent = "STATUS: INITIALIZING MODULES…";
-  barEl.style.width = "0%";
-};
+    btn.style.left = `${x}px`;
+    btn.style.top = `${y}px`;
+    btn.style.transform = "none";
+  }
+});
 </script>
 
 </body>
