@@ -19,22 +19,24 @@ body {
   height: 100vh;
   background: linear-gradient(135deg, #0f0f14, #1a1a22);
   font-family: "Inter", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   color: #fff;
 }
 
+/* Center card */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
-  padding: 32px 36px 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 36px 40px 48px;
   width: 420px;
   max-width: 90%;
   text-align: center;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
 
 h1 {
@@ -59,27 +61,20 @@ p {
 
 .progress-bar {
   height: 100%;
-  width: 35%;
+  width: 40%;
   background: linear-gradient(90deg, #6d7cff, #9b6dff);
   animation: shimmer 2s infinite linear;
 }
 
 @keyframes shimmer {
-  from { background-position: 0 0; }
+  from { background-position: 0% 0; }
   to { background-position: 200% 0; }
 }
 
-.load-area {
-  position: relative;
-  height: 80px;
-}
-
+/* Load button (free roaming) */
 #loadBtn {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 22px;
+  padding: 12px 26px;
   font-size: 14px;
   font-weight: 600;
   border-radius: 999px;
@@ -87,13 +82,28 @@ p {
   cursor: pointer;
   background: #fff;
   color: #000;
-  transition: transform 0.15s ease;
+  transition: left 0.25s ease, top 0.25s ease;
+  z-index: 10;
 }
 
 .footer {
-  margin-top: 32px;
+  margin-top: 36px;
   font-size: 12px;
   opacity: 0.5;
+}
+
+/* Fake loader overlay */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: #0f0f14;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  flex-direction: column;
+  gap: 20px;
 }
 </style>
 </head>
@@ -103,40 +113,87 @@ p {
 <div class="card">
   <h1>Under Construction</h1>
   <p>We’re rebuilding this page.  
-     Click the button below to load the site.</p>
+     Try to load the site.</p>
 
   <div class="progress">
     <div class="progress-bar"></div>
   </div>
 
-  <div class="load-area" id="area">
-    <button id="loadBtn">Load Site</button>
-  </div>
-
   <div class="footer">
-    This may take a while.
+    This may take longer than expected.
   </div>
 </div>
 
+<button id="loadBtn">Load Site</button>
+
+<div id="overlay">
+  <div>You caught it.</div>
+  <div>Loading…</div>
+</div>
+
+<!-- Sounds -->
+<audio id="dodgeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-click-error-1110.mp3"></audio>
+<audio id="successSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
+
 <script>
 const btn = document.getElementById("loadBtn");
-const area = document.getElementById("area");
+const overlay = document.getElementById("overlay");
+const dodgeSound = document.getElementById("dodgeSound");
+const successSound = document.getElementById("successSound");
 
-area.addEventListener("mousemove", (e) => {
+let attempts = 0;
+const maxAttempts = 8;
+
+/* Place button initially */
+function randomPosition() {
+  const padding = 20;
+  const x = Math.random() * (window.innerWidth - btn.offsetWidth - padding);
+  const y = Math.random() * (window.innerHeight - btn.offsetHeight - padding);
+  btn.style.left = `${x}px`;
+  btn.style.top = `${y}px`;
+}
+
+randomPosition();
+
+/* Mouse dodge */
+document.addEventListener("mousemove", (e) => {
+  if (attempts >= maxAttempts) return;
+
   const rect = btn.getBoundingClientRect();
-  const distX = Math.abs(e.clientX - (rect.left + rect.width / 2));
-  const distY = Math.abs(e.clientY - (rect.top + rect.height / 2));
+  const dx = e.clientX - (rect.left + rect.width / 2);
+  const dy = e.clientY - (rect.top + rect.height / 2);
+  const dist = Math.hypot(dx, dy);
 
-  if (distX < 80 && distY < 40) {
-    const areaRect = area.getBoundingClientRect();
-
-    const x = Math.random() * (areaRect.width - rect.width);
-    const y = Math.random() * (areaRect.height - rect.height);
-
-    btn.style.left = `${x}px`;
-    btn.style.top = `${y}px`;
-    btn.style.transform = "none";
+  if (dist < 120) {
+    attempts++;
+    dodgeSound.currentTime = 0;
+    dodgeSound.play();
+    randomPosition();
   }
+});
+
+/* Mobile tap dodge */
+btn.addEventListener("touchstart", (e) => {
+  if (attempts < maxAttempts) {
+    e.preventDefault();
+    attempts++;
+    dodgeSound.currentTime = 0;
+    dodgeSound.play();
+    randomPosition();
+  }
+});
+
+/* Success click */
+btn.addEventListener("click", () => {
+  if (attempts < maxAttempts) return;
+
+  successSound.play();
+  overlay.style.display = "flex";
+
+  setTimeout(() => {
+    // prank redirect
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  }, 2500);
 });
 </script>
 
