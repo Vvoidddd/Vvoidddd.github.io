@@ -1,0 +1,10 @@
+{
+  "local": {
+    "APP_ENV": "local",
+    "APP_DEBUG": "true"
+  },
+  "prod": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false"
+  }
+}

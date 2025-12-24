@@ -1,0 +1,15 @@
+{
+  "name": "React",
+  "prefix": "REACT_APP_",
+  "variables": [
+    {
+      "key": "API_URL",
+      "placeholder": "http://localhost:3001",
+      "description": "Backend API URL"
+    },
+    {
+      "key": "ENV",
+      "placeholder": "development"
+    }
+  ]
+}

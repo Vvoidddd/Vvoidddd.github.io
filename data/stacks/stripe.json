@@ -1,0 +1,14 @@
+{
+  "name": "Stripe",
+  "scope": "backend",
+  "variables": [
+    {
+      "key": "STRIPE_SECRET_KEY",
+      "placeholder": "sk_test_..."
+    },
+    {
+      "key": "STRIPE_WEBHOOK_SECRET",
+      "placeholder": "whsec_..."
+    }
+  ]
+}

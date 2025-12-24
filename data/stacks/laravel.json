@@ -1,0 +1,31 @@
+{
+  "name": "Laravel",
+  "prefix": "APP_",
+  "variables": [
+    {
+      "key": "NAME",
+      "placeholder": "Laravel",
+      "description": "Application name"
+    },
+    {
+      "key": "ENV",
+      "placeholder": "local",
+      "description": "Application environment"
+    },
+    {
+      "key": "KEY",
+      "placeholder": "base64_encoded_key_here",
+      "description": "Application key"
+    },
+    {
+      "key": "DEBUG",
+      "placeholder": "true",
+      "description": "Debug mode"
+    },
+    {
+      "key": "URL",
+      "placeholder": "http://localhost",
+      "description": "Application URL"
+    }
+  ]
+}

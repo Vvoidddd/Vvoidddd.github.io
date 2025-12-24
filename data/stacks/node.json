@@ -1,0 +1,13 @@
+{
+  "name": "Node",
+  "variables": [
+    {
+      "key": "PORT",
+      "placeholder": "3001"
+    },
+    {
+      "key": "DATABASE_URL",
+      "placeholder": "postgres://user:pass@localhost:5432/db"
+    }
+  ]
+}

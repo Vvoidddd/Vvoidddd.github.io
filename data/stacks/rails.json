@@ -1,0 +1,21 @@
+{
+  "name": "Ruby on Rails",
+  "prefix": "RAILS_",
+  "variables": [
+    {
+      "key": "ENV",
+      "placeholder": "development",
+      "description": "Rails environment"
+    },
+    {
+      "key": "SECRET_KEY_BASE",
+      "placeholder": "your_secret_key",
+      "description": "Secret key base"
+    },
+    {
+      "key": "LOG_LEVEL",
+      "placeholder": "debug",
+      "description": "Log level"
+    }
+  ]
+}

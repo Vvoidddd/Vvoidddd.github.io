@@ -1,0 +1,9 @@
+{
+  "name": "Docker",
+  "variables": [
+    {
+      "key": "COMPOSE_PROJECT_NAME",
+      "placeholder": "envgen"
+    }
+  ]
+}
