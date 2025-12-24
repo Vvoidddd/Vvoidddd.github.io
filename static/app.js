@@ -212,7 +212,7 @@ copyBtn.onclick = function () {
 // ASCII Logo Twinkling Animation
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Twinkling script started');
-  document.body.style.backgroundColor = '#001100'; // Temporary green tint to show script is running
+  // removed temporary debug background color
   
   var asciiLogo = document.getElementById('ascii-logo');
   if (!asciiLogo) {
