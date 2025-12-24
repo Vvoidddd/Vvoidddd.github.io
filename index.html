@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Under Construction</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Jersey 20", monospace;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  border: 1px solid #fff;
+  padding: 24px;
+  width: 520px;
+  max-width: 90%;
+}
+
+.logo {
+  font-size: 14px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  white-space: pre;
+}
+
+.status {
+  border: 1px solid #fff;
+  padding: 10px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.progress {
+  border: 1px solid #fff;
+  height: 24px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  transition: width 0.3s linear;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 6px 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.footer {
+  margin-top: 16px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<pre class="logo">
+ ██████╗ ██████╗ ███╗   ██╗███████╗
+██╔════╝██╔═══██╗████╗  ██║██╔════╝
+██║     ██║   ██║██╔██╗ ██║█████╗  
+██║     ██║   ██║██║╚██╗██║██╔══╝  
+╚██████╗╚██████╔╝██║ ╚████║███████╗
+ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+</pre>
+
+<div class="status" id="status">
+STATUS: INITIALIZING MODULES…
+</div>
+
+<div class="progress">
+  <div class="progress-bar" id="bar"></div>
+</div>
+
+<div class="controls">
+  <button id="advance">ADVANCE</button>
+  <button id="reset">RESET</button>
+</div>
+
+<div class="footer">
+  Site is under construction. No ETA. Touch grass.
+</div>
+</div>
+
+<script>
+const states = [
+  "INITIALIZING MODULES…",
+  "COMPILING ASSETS…",
+  "BREAKING EVERYTHING…",
+  "FIXING WHAT JUST BROKE…",
+  "ADDING FEATURES NO ONE ASKED FOR…",
+  "ALMOST DONE (PROBABLY)…"
+];
+
+let index = 0;
+let progress = 0;
+
+const statusEl = document.getElementById("status");
+const barEl = document.getElementById("bar");
+
+document.getElementById("advance").onclick = () => {
+  index = (index + 1) % states.length;
+  progress = Math.min(progress + Math.floor(Math.random() * 25 + 10), 100);
+
+  statusEl.textContent = "STATUS: " + states[index];
+  barEl.style.width = progress + "%";
+};
+
+document.getElementById("reset").onclick = () => {
+  index = 0;
+  progress = 0;
+  statusEl.textContent = "STATUS: INITIALIZING MODULES…";
+  barEl.style.width = "0%";
+};
+</script>
+
+</body>
+</html>
